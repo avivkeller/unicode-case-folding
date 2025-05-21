@@ -4,7 +4,8 @@
  * Source: https://www.unicode.org/Public/UCD/latest/ucd/CaseFolding.txt
  */
 
-// MAPPING_DATA_PLACEHOLDER
+// Mapping of code points to their case-folded equivalents
+const FOLDING_MAP = new Map(/* MAPPING_DATA_PLACEHOLDER */);
 
 /**
  * Applies Unicode case folding to a string
@@ -12,27 +13,27 @@
  * @returns {string} The case-folded string
  */
 export function caseFold(input) {
-  if (typeof input !== 'string') {
-    throw new TypeError('Input must be a string');
+  if (typeof input !== "string") {
+    throw new TypeError("Input must be a string");
   }
-  
-  let result = '';
-  
+
+  let result = "";
+
   for (let i = 0; i < input.length;) {
     const codePoint = input.codePointAt(i);
     const increment = codePoint > 0xFFFF ? 2 : 1;
-    
+
     const mapping = FOLDING_MAP.get(codePoint);
-    
+
     if (mapping) {
       result += String.fromCodePoint(...mapping);
     } else {
       result += String.fromCodePoint(codePoint);
     }
-    
+
     i += increment;
   }
-  
+
   return result;
 }
 
@@ -52,10 +53,10 @@ export function caseFoldEquals(str1, str2) {
  * @returns {number[] | undefined} Array of code points this folds to, or undefined
  */
 export function lookupFolding(codePoint) {
-  if (typeof codePoint !== 'number') {
-    throw new TypeError('Code point must be a number');
+  if (typeof codePoint !== "number") {
+    throw new TypeError("Code point must be a number");
   }
-  
+
   return FOLDING_MAP.get(codePoint);
 }
 
@@ -63,5 +64,5 @@ export function lookupFolding(codePoint) {
 export default {
   caseFold,
   caseFoldEquals,
-  lookupFolding
+  lookupFolding,
 };

@@ -17,19 +17,19 @@ npm install unicode-case-folding
 ## Usage
 
 ```javascript
-import { caseFold, caseFoldEquals } from 'unicode-case-folding';
+import { caseFold, caseFoldEquals } from "unicode-case-folding";
 
 // Basic case folding
-const folded = caseFold('Hello World');
-console.log(folded);  // "hello world"
+const folded = caseFold("Hello World");
+console.log(folded); // "hello world"
 
 // Case-insensitive comparison
-console.log(caseFoldEquals('HELLO', 'hello'));  // true
-console.log(caseFoldEquals('ẞ', 'ss'));  // true (German sharp S)
-console.log(caseFoldEquals('Straße', 'strasse'));  // true
+console.log(caseFoldEquals("HELLO", "hello")); // true
+console.log(caseFoldEquals("ẞ", "ss")); // true (German sharp S)
+console.log(caseFoldEquals("Straße", "strasse")); // true
 
 // Special case foldings
-console.log(caseFold('ẞ'));  // "ss" (German sharp S folds to "ss")
+console.log(caseFold("ẞ")); // "ss" (German sharp S folds to "ss")
 ```
 
 ## API
