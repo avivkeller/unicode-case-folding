@@ -1,0 +1,34 @@
+{
+  "name": "unicode-case-folding",
+  "version": "1.0.0",
+  "description": "Unicode case folding utilities based on the official Unicode Character Database",
+  "main": "lib.js",
+  "type": "module",
+  "scripts": {
+    "build": "node src/build.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "unicode",
+    "case-folding",
+    "internationalization",
+    "i18n",
+    "string",
+    "case-insensitive"
+  ],
+  "author": "Aviv Keller <me@aviv.sh>",
+  "license": "MIT",
+  "files": [
+    "lib.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avivkeller/unicode-case-folding.git"
+  },
+  "bugs": {
+    "url": "https://github.com/avivkeller/unicode-case-folding/issues"
+  },
+  "homepage": "https://github.com/avivkeller/unicode-case-folding#readme"
+}
