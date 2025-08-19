@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CASE_FOLDING_URL =
   "https://www.unicode.org/Public/UCD/latest/ucd/CaseFolding.txt";
 const TEMPLATE_PATH = path.join(__dirname, "template.js");
-const OUTPUT_PATH = path.join(__dirname, "../lib.js");
+const OUTPUT_PATH = path.join(__dirname, "../index.js");
 
 console.log("Fetching Unicode case folding data...");
 const response = await fetch(CASE_FOLDING_URL);

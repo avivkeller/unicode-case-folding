@@ -1,5 +1,6 @@
 # Generated files
-lib.js
+node_modules
+index.js
 
 # OS files
 .DS_Store

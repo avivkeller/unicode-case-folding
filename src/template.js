@@ -17,24 +17,17 @@ export function caseFold(input) {
     throw new TypeError("Input must be a string");
   }
 
-  let result = "";
+  let result = [];
 
-  for (let i = 0; i < input.length;) {
-    const codePoint = input.codePointAt(i);
-    const increment = codePoint > 0xFFFF ? 2 : 1;
+  for (const char of input) {
+    const codePoint = char.codePointAt(0);
 
     const mapping = FOLDING_MAP.get(codePoint);
 
-    if (mapping) {
-      result += String.fromCodePoint(...mapping);
-    } else {
-      result += String.fromCodePoint(codePoint);
-    }
-
-    i += increment;
+    result.push(mapping ? String.fromCodePoint(...mapping) : char);
   }
 
-  return result;
+  return result.join("");
 }
 
 /**

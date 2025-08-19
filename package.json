@@ -1,12 +1,17 @@
 {
   "name": "unicode-case-folding",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Unicode case folding utilities based on the official Unicode Character Database",
-  "main": "lib.js",
+  "main": "index.js",
+  "types": "types.d.ts",
   "type": "module",
   "scripts": {
     "build": "node src/build.js",
-    "test": "node --test"
+    "test": "node --test",
+    "lint": "eslint .",
+    "lint:fix": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "keywords": [
     "unicode",
@@ -19,7 +24,8 @@
   "author": "Aviv Keller <me@aviv.sh>",
   "license": "MIT",
   "files": [
-    "lib.js",
+    "types.d.ts",
+    "index.js",
     "README.md",
     "LICENSE"
   ],
@@ -30,5 +36,11 @@
   "bugs": {
     "url": "https://github.com/avivkeller/unicode-case-folding/issues"
   },
-  "homepage": "https://github.com/avivkeller/unicode-case-folding#readme"
+  "homepage": "https://github.com/avivkeller/unicode-case-folding#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "eslint": "^9.33.0",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2"
+  }
 }
