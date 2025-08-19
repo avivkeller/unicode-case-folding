@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     # Run once a month at midnight on the first day
-    - cron: '0 0 1 * *'
+    - cron: "0 0 1 * *"
 
 jobs:
   compare-and-bump:
@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: lts/*
           cache: npm
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
         run: npm ci
@@ -32,12 +32,12 @@ jobs:
         run: |
           # Create temp directory and set paths
           TMP_DIR=$(mktemp -d)
-          
+
           # Fetch package from npm and extract index.js
           PACKAGE_URL=$(npm view unicode-case-folding dist.tarball)
           curl -sL "$PACKAGE_URL" -o "$TMP_DIR/package.tgz"
           tar -xzf "$TMP_DIR/package.tgz" -C "$TMP_DIR"
-          
+
           # Compare files and set output
           if diff -q "index.js" "$TMP_DIR/package/index.js"; then
             echo "result=same" >> $GITHUB_OUTPUT
@@ -51,10 +51,10 @@ jobs:
           # Configure Git
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          
+
           # Get current version and bump patch
           npm version patch -m "Bump version to %s"
           npm publish
-    
+
           # Push changes back to the repository
           git push
