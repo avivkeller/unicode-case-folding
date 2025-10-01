@@ -1,6 +1,6 @@
 {
   "name": "unicode-case-folding",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Unicode case folding utilities based on the official Unicode Character Database",
   "main": "index.js",
   "types": "types.d.ts",
