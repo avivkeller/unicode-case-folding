@@ -38,8 +38,8 @@
   },
   "homepage": "https://github.com/avivkeller/unicode-case-folding#readme",
   "devDependencies": {
-    "@eslint/js": "^9.33.0",
-    "eslint": "^9.33.0",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.2",
     "globals": "^17.0.0",
     "prettier": "^3.6.2"
   }
