@@ -1,6 +1,6 @@
 {
   "name": "unicode-bidi",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The Unicode Bidirectional Algorithm (UAX #9): embedding levels, reordering and mirroring of right-to-left and mixed-direction text, based on the official Unicode Character Database",
   "keywords": [
     "unicode",
