@@ -1,0 +1,17 @@
+{
+  "name": "cldr-region-currency",
+  "version": "1.0.0",
+  "description": "Find the currency used in a country or region, now or on a given date, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "currency",
+    "iso-4217",
+    "country",
+    "region",
+    "i18n"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

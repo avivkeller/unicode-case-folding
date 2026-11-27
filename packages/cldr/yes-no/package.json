@@ -1,0 +1,19 @@
+{
+  "name": "cldr-yes-no",
+  "version": "1.0.0",
+  "description": "Understand yes/no answers in any language, for command-line prompts, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "yes",
+    "no",
+    "prompt",
+    "confirm",
+    "cli",
+    "i18n",
+    "locale"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

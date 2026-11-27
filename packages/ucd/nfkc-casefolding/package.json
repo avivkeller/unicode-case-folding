@@ -1,0 +1,19 @@
+{
+  "name": "unicode-nfkc-casefolding",
+  "version": "1.0.0",
+  "description": "Unicode NFKC_Casefold (toNFKC_Casefold) for loose, case-insensitive matching of identifiers and usernames",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "nfkc",
+    "casefold",
+    "case-folding",
+    "normalization",
+    "identifiers",
+    "usernames",
+    "uts-31"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

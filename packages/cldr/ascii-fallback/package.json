@@ -1,0 +1,17 @@
+{
+  "name": "cldr-ascii-fallback",
+  "version": "1.0.0",
+  "description": "Convert any text to readable ASCII with the Unicode CLDR Latin-ASCII transform and character fallbacks",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "ascii",
+    "transliteration",
+    "diacritics",
+    "slug",
+    "fallback"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

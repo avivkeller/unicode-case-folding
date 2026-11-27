@@ -1,0 +1,16 @@
+{
+  "name": "unicode-case-folding",
+  "version": "2.0.0",
+  "description": "Unicode case folding utilities based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "case-folding",
+    "case-insensitive",
+    "string",
+    "i18n"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

@@ -1,67 +1,57 @@
-name: Compare Mapping and Bump Version
+name: Release Changed Packages
 
 on:
   workflow_dispatch:
   schedule:
-    # Run once a month at midnight on the first day
+    # Once a month, to pick up new UCD and CLDR releases
     - cron: "0 0 1 * *"
 
-permissions:
-  contents: write
-  id-token: write
+permissions: {}
 
 jobs:
-  compare-and-bump:
+  release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: lts/*
           cache: npm
           registry-url: "https://registry.npmjs.org"
 
-      - name: Update npm
-        run: npm install -g npm@latest
-
       - name: Install dependencies
         run: npm ci
 
-      - name: Build project
+      # Builds from the latest UCD and CLDR releases
+      - name: Build packages
         run: npm run build
 
-      - name: Compare with npm package
-        id: compare
+      - name: Run tests
+        run: npm test
+
+      # Compares each package with its latest release on npm, and publishes
+      # the ones that changed with a patch version bump
+      - name: Publish changed packages
+        id: release
+        run: npm run release
+
+      - name: Commit version bumps
+        if: steps.release.outputs.released != ''
+        env:
+          RELEASED: ${{ steps.release.outputs.released }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          # Create temp directory and set paths
-          TMP_DIR=$(mktemp -d)
-
-          # Fetch package from npm and extract index.js
-          PACKAGE_URL=$(npm view unicode-case-folding dist.tarball)
-          curl -sL "$PACKAGE_URL" -o "$TMP_DIR/package.tgz"
-          tar -xzf "$TMP_DIR/package.tgz" -C "$TMP_DIR"
-
-          # Compare files and set output
-          if diff -q "index.js" "$TMP_DIR/package/index.js"; then
-            echo "result=same" >> $GITHUB_OUTPUT
-          else
-            echo "result=different" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Bump patch version
-        if: steps.compare.outputs.result == 'different'
-        run: |
-          # Configure Git
+          gh auth setup-git
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-
-          # Get current version and bump patch
-          npm version patch -m "Bump version to %s"
-          npm publish --provenance
-
-          # Push changes back to the repository
+          git diff --quiet || git commit -am "Release $RELEASED"
           git push

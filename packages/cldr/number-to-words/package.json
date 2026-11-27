@@ -1,0 +1,19 @@
+{
+  "name": "cldr-number-to-words",
+  "version": "1.0.0",
+  "description": "Spell out numbers in words for any locale (\"one hundred twenty-three\", \"twenty-first\", \"21st\", roman numerals), using the Unicode CLDR rule-based number formats",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "rbnf",
+    "spellout",
+    "number-to-words",
+    "ordinal",
+    "roman-numerals",
+    "i18n",
+    "locale"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

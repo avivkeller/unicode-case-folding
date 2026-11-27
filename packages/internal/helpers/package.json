@@ -1,0 +1,11 @@
+{
+  "name": "@internal/helpers",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Code shared by the packages, bundled into each of them",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./*": "./src/*.mjs"
+  }
+}

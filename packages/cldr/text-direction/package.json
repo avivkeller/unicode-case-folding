@@ -1,0 +1,19 @@
+{
+  "name": "cldr-text-direction",
+  "version": "1.0.0",
+  "description": "Find whether a locale is written right-to-left or left-to-right, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "rtl",
+    "ltr",
+    "bidi",
+    "direction",
+    "dir",
+    "i18n",
+    "locale"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

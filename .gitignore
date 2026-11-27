@@ -1,6 +1,8 @@
-# Generated files
+# Dependencies and download cache
 node_modules
-index.js
+
+# Build output
+packages/*/*/dist/
 
 # OS files
 .DS_Store

@@ -1,62 +1,69 @@
-# unicode-case-folding
+# Unicode packages
 
-A JavaScript library for Unicode case folding based on the official Unicode Character Database.
+Small, dependency-free JavaScript packages built from the official Unicode
+data: the [Unicode Character Database](https://www.unicode.org/ucd/) (UCD)
+and the [Unicode CLDR](https://cldr.unicode.org/). Each package is a single
+tree-shakeable ES module with TypeScript declarations, regenerated from the
+latest data every month.
 
-## What is Case Folding?
+## Packages
 
-Case folding is the process of removing case distinctions in a string. It's similar to case conversion but specifically designed for case-insensitive comparisons rather than display.
+### From the Unicode Character Database
 
-Unlike simple case conversion, Unicode case folding follows specific rules defined in the Unicode standard to ensure proper internationalized case-insensitive comparisons.
+| Package                                                     | Description                                                                      |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [`unicode-case-folding`](packages/ucd/case-folding)         | Full case folding, for case-insensitive comparison                               |
+| [`unicode-nfkc-casefolding`](packages/ucd/nfkc-casefolding) | NFKC case folding, for loose matching of identifiers and usernames               |
+| [`unicode-lowercase`](packages/ucd/lowercase)               | Full lowercase mapping, with Final_Sigma and Lithuanian, Turkish and Azeri rules |
+| [`unicode-uppercase`](packages/ucd/uppercase)               | Full uppercase mapping, with Lithuanian, Turkish and Azeri rules                 |
+| [`unicode-titlecase`](packages/ucd/titlecase)               | Titlecasing as defined by the Unicode Standard                                   |
+| [`unicode-normalize-digits`](packages/ucd/normalize-digits) | Digits of any script to ASCII ("١٢٣" → "123"), and numeric values                |
+| [`unicode-display-width`](packages/ucd/display-width)       | How many terminal columns a string takes                                         |
+| [`unicode-line-break`](packages/ucd/line-break)             | Line break opportunities (UAX #14)                                               |
+| [`unicode-bidi`](packages/ucd/bidi)                         | The Unicode Bidirectional Algorithm (UAX #9)                                     |
+| [`unicode-age`](packages/ucd/age)                           | The Unicode version that introduced a character                                  |
+| [`unicode-pinyin`](packages/ucd/pinyin)                     | Mandarin readings of Chinese characters, from Unihan                             |
 
-## Installation
+### From the Unicode security data
 
-```bash
-npm install unicode-case-folding
+| Package                                                    | Description                                                                   |
+| ---------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [`unicode-spoof-checker`](packages/security/spoof-checker) | Confusable strings, mixed scripts and identifier restriction levels (UTS #39) |
+
+### From the Unicode CLDR
+
+| Package                                                 | Description                                                                 |
+| ------------------------------------------------------- | --------------------------------------------------------------------------- |
+| [`cldr-format-name`](packages/cldr/format-name)         | Person name formatting for any locale                                       |
+| [`cldr-format-unit`](packages/cldr/format-unit)         | Unit conversion, and measurements in a region's preferred units             |
+| [`cldr-number-to-words`](packages/cldr/number-to-words) | Numbers in words ("one hundred twenty-three"), ordinals and numeral systems |
+| [`cldr-transliterate`](packages/cldr/transliterate)     | Romanization of other scripts ("Привет" → "Privet")                         |
+| [`cldr-ascii-fallback`](packages/cldr/ascii-fallback)   | Readable ASCII for any text ("Crème brûlée" → "Creme brulee")               |
+| [`cldr-smart-quotes`](packages/cldr/smart-quotes)       | Locale-correct quotation marks and smart quotes                             |
+| [`cldr-text-direction`](packages/cldr/text-direction)   | Whether a locale is written right-to-left                                   |
+| [`cldr-week-info`](packages/cldr/week-info)             | First day of the week and weekend of any locale                             |
+| [`cldr-region-currency`](packages/cldr/region-currency) | The currency of a region, now or on a date, and its rounding                |
+| [`cldr-windows-zones`](packages/cldr/windows-zones)     | Windows time zones ↔ IANA time zones                                        |
+| [`cldr-yes-no`](packages/cldr/yes-no)                   | Yes/no answers in any language, for command-line prompts                    |
+
+## Development
+
+```sh
+npm install
+npm run build   # Build every package (or: npm run build -- <name>...)
+npm test        # Test every package
+npm run lint
+npm run format
 ```
 
-## Usage
+### Releases
 
-```javascript
-import { caseFold, caseFoldEquals } from "unicode-case-folding";
-
-// Basic case folding
-const folded = caseFold("Hello World");
-console.log(folded); // "hello world"
-
-// Case-insensitive comparison
-console.log(caseFoldEquals("HELLO", "hello")); // true
-console.log(caseFoldEquals("ẞ", "ss")); // true (German sharp S)
-console.log(caseFoldEquals("Straße", "strasse")); // true
-
-// Special case foldings
-console.log(caseFold("ẞ")); // "ss" (German sharp S folds to "ss")
-```
-
-## API
-
-### caseFold(string)
-
-Applies Unicode case folding to the input string.
-
-- **Parameters:** `string` - The string to case fold
-- **Returns:** The case-folded string
-
-### caseFoldEquals(string1, string2)
-
-Compares two strings for equality using Unicode case folding.
-
-- **Parameters:**
-  - `string1` - First string to compare
-  - `string2` - Second string to compare
-- **Returns:** `true` if the strings are case-fold equivalent, `false` otherwise
-
-### lookupFolding(codePoint)
-
-Returns the case folding mapping for a specific code point.
-
-- **Parameters:** `codePoint` - Unicode code point as a number
-- **Returns:** Array of code points this character folds to, or undefined if no folding exists
+A monthly workflow rebuilds every package from the latest data, compares
+each with its latest release on npm, and publishes the ones that changed
+with a patch version bump.
 
 ## License
 
-MIT
+The code is MIT licensed. The packages include data from the Unicode
+Character Database and CLDR, © Unicode, Inc., under the
+[Unicode License v3](https://www.unicode.org/license.txt).

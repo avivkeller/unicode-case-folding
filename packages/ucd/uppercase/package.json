@@ -1,0 +1,17 @@
+{
+  "name": "unicode-uppercase",
+  "version": "1.0.0",
+  "description": "Full Unicode uppercase mapping, with Lithuanian, Turkish and Azeri rules, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "uppercase",
+    "case-mapping",
+    "string",
+    "i18n",
+    "locale"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

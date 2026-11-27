@@ -1,0 +1,20 @@
+{
+  "name": "cldr-format-unit",
+  "version": "1.0.0",
+  "description": "Unit conversion, regional unit preferences and measurement formatting, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "units",
+    "unit-conversion",
+    "measurement",
+    "metric",
+    "imperial",
+    "i18n",
+    "locale",
+    "uts-35"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

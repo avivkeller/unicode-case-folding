@@ -1,0 +1,17 @@
+{
+  "name": "unicode-age",
+  "version": "1.0.0",
+  "description": "Find the Unicode version that introduced a character, or the version a string needs, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "age",
+    "version",
+    "emoji",
+    "support",
+    "compatibility"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

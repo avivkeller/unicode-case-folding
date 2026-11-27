@@ -1,0 +1,17 @@
+{
+  "name": "cldr-smart-quotes",
+  "version": "1.0.0",
+  "description": "Locale-correct quotation marks and smart quotes, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "quotes",
+    "smart-quotes",
+    "typography",
+    "i18n",
+    "locale"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

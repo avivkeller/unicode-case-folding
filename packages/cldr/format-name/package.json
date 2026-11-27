@@ -1,0 +1,18 @@
+{
+  "name": "cldr-format-name",
+  "version": "1.0.0",
+  "description": "Format personal names for any locale, implementing the Unicode CLDR person name formatting algorithm (UTS #35)",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "person-name",
+    "name",
+    "formatting",
+    "i18n",
+    "locale",
+    "uts-35"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

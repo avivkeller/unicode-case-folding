@@ -1,0 +1,17 @@
+{
+  "name": "cldr-windows-zones",
+  "version": "1.0.0",
+  "description": "Convert between Windows time zone names and IANA time zones, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "timezone",
+    "time-zone",
+    "windows",
+    "iana",
+    "tz"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}
