@@ -1,6 +1,6 @@
 {
   "name": "unicode-line-break",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The Unicode Line Breaking Algorithm (UAX #14): where text may or must be wrapped, based on the official Unicode Character Database",
   "keywords": [
     "unicode",

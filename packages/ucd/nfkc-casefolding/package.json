@@ -1,6 +1,6 @@
 {
   "name": "unicode-nfkc-casefolding",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Unicode NFKC_Casefold (toNFKC_Casefold) for loose, case-insensitive matching of identifiers and usernames",
   "keywords": [
     "unicode",

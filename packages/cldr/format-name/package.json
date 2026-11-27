@@ -1,6 +1,6 @@
 {
   "name": "cldr-format-name",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Format personal names for any locale, implementing the Unicode CLDR person name formatting algorithm (UTS #35)",
   "keywords": [
     "unicode",

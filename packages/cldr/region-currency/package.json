@@ -1,6 +1,6 @@
 {
   "name": "cldr-region-currency",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Find the currency used in a country or region, now or on a given date, based on the Unicode CLDR",
   "keywords": [
     "unicode",
