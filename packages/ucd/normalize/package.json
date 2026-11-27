@@ -1,0 +1,20 @@
+{
+  "name": "unicode-normalize",
+  "version": "1.0.0",
+  "description": "Unicode normalization (UAX #15): NFC, NFD, NFKC and NFKD, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "normalize",
+    "normalization",
+    "nfc",
+    "nfd",
+    "nfkc",
+    "nfkd",
+    "uax15",
+    "i18n"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

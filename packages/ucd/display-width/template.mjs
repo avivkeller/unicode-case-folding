@@ -1,5 +1,6 @@
 import { assertCodePoint, assertString } from "@internal/helpers/assert";
 import { inSet } from "@internal/helpers/tables";
+import { splitGraphemes } from "unicode-text-segmentation";
 import { AMBIGUOUS, EMOJI, VERSION, WIDE, ZERO_WIDTH } from "#generated";
 
 export { VERSION };
@@ -14,8 +15,6 @@ const PRINTABLE_ASCII = /^[ -~]*$/;
 
 // Before U+0300, each character is a grapheme cluster (but zero-width CR LF)
 const HAS_CLUSTERS = /[^\0-\u02ff]/;
-
-let graphemes;
 
 /**
  * Returns how many columns a string takes in a terminal, like wcwidth
@@ -36,9 +35,8 @@ export function displayWidth(text, options = {}) {
     }
     return width;
   }
-  graphemes ??= new Intl.Segmenter("und", { granularity: "grapheme" });
-  for (const { segment } of graphemes.segment(plain)) {
-    width += clusterWidth(segment, ambiguousWidth);
+  for (const cluster of splitGraphemes(plain)) {
+    width += clusterWidth(cluster, ambiguousWidth);
   }
   return width;
 }
@@ -47,11 +45,13 @@ export function displayWidth(text, options = {}) {
  * Returns how many columns (0, 1 or 2) a character takes in a terminal
  * @param {number} codePoint
  * @param {DisplayWidthOptions} [options]
- * @returns {number}
+ * @returns {0 | 1 | 2}
  */
 export function codePointWidth(codePoint, options = {}) {
   assertCodePoint(codePoint);
-  return characterWidth(codePoint, options.ambiguousIsWide ? 2 : 1);
+  return /** @type {0 | 1 | 2} */ (
+    characterWidth(codePoint, options.ambiguousIsWide ? 2 : 1)
+  );
 }
 
 function characterWidth(codePoint, ambiguousWidth) {

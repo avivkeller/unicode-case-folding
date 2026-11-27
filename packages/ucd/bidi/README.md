@@ -91,8 +91,8 @@ reorder them.
 Converts text to the order in which it is displayed, for output that is
 shown from left to right without reordering, such as most terminals. Each
 paragraph, and each line ended by U+2028 LINE SEPARATOR, is reordered as one
-line. Right-to-left text is reversed by grapheme cluster (with
-`Intl.Segmenter`), so that combining marks and emoji sequences stay whole
+line. Right-to-left text is reversed by grapheme cluster, so that combining
+marks and emoji sequences stay whole
 (rule L3), mirrored characters are replaced with their mirror images (L4),
 and directional formatting characters are removed. `options` are those of
 `getEmbeddingLevels()`.

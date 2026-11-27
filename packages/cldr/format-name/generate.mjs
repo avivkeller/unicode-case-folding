@@ -63,13 +63,3 @@ for (const [locale, data] of personNames) {
 }
 
 export const PERSON_NAMES = encodeLocaleTable(byLocale, likelySubtags);
-
-const scriptUse = new Map();
-for (const target of Object.values(likelySubtags)) {
-  const script = target.split("-")[1];
-  scriptUse.set(script, (scriptUse.get(script) ?? 0) + 1);
-}
-export const SCRIPTS = [...scriptUse]
-  .filter(([script]) => !["Zyyy", "Zinh", "Zzzz"].includes(script))
-  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-  .map(([script]) => script);

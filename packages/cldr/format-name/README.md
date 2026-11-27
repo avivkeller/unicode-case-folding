@@ -104,8 +104,10 @@ The CLDR version of the data, such as `"49.0.0"`.
 The package passes CLDR's person name conformance tests for all 111 locales
 it covers, except one Burmese case where the JavaScript engine's word
 segmentation, which initials depend on, differs from the reference
-implementation's. Initials, monograms and capitalization use the engine's
-`Intl.Segmenter` and `toLocaleUpperCase()`.
+implementation's. The words that initials are taken from are found with
+the engine's `Intl.Segmenter`, for its dictionaries of languages written
+without spaces; capitalization, grapheme clusters, the script of a name and
+its likely locale come from Unicode data.
 
 ## License
 

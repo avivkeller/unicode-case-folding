@@ -1,4 +1,5 @@
 import { unicodeKeywords } from "@internal/helpers/locale";
+import { getLikelySubtags } from "cldr-likely-subtags";
 import {
   ALIASES,
   BASE_UNITS,
@@ -445,7 +446,7 @@ function settingsOfLocale(locale) {
     const region =
       subdivision?.[1].toUpperCase() ??
       parsed.region ??
-      parsed.maximize().region ??
+      getLikelySubtags(parsed).region ??
       "001";
     settings = [
       region,

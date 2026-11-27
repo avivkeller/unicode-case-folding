@@ -1,6 +1,5 @@
 import { normalizeLocale, unicodeKeywords } from "@internal/helpers/locale";
 import {
-  CLDR_LANGUAGES,
   DEFAULT_WEEK,
   LIKELY_REGIONS,
   REGION_WEEKS,
@@ -46,12 +45,10 @@ function regionOf(tag, rg) {
   const region = subtags.find((subtag) => REGION.test(subtag));
   if (region) return region;
   const script = subtags.find((subtag) => /^[A-Z][a-z]{3}$/.test(subtag));
-  const likely =
+  return (
     (script && LIKELY_REGIONS.get(`${language}-${script}`)) ??
-    LIKELY_REGIONS.get(language);
-  if (likely || CLDR_LANGUAGES.has(language)) return likely;
-
-  return new Intl.Locale(tag).maximize().region;
+    LIKELY_REGIONS.get(language)
+  );
 }
 
 export default { getWeekInfo, VERSION };

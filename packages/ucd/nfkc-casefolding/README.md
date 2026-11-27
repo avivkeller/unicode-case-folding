@@ -69,8 +69,8 @@ The Unicode version of the data, such as `"18.0.0"`.
 
 ## Notes
 
-Normalization uses `String.prototype.normalize()`, so characters newer than
-the JavaScript engine's Unicode version are not composed or decomposed.
+Normalization uses the same Unicode version as the folding, not the
+JavaScript engine's.
 
 ## License
 

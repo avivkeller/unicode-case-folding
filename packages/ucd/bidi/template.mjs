@@ -12,6 +12,7 @@ import {
   resolveLevels,
   visualRuns,
 } from "@internal/helpers/bidi";
+import { splitGraphemes } from "unicode-text-segmentation";
 import { BIDI, VERSION } from "#generated";
 
 export { VERSION };
@@ -22,8 +23,6 @@ const LINE_FEED = 0x0a;
 const LINE_SEPARATOR = 0x2028;
 // Unchanged since Unicode 6.3, so the engine's Unicode version does not matter
 const BIDI_CONTROLS = /\p{Bidi_Control}/gu;
-
-let graphemeSegmenter;
 
 /**
  * Resolves the embedding levels of text with the Unicode Bidirectional Algorithm
@@ -193,13 +192,7 @@ function visualLine(text, levels, start, end, paragraphLevel) {
       visual += runText;
       continue;
     }
-    graphemeSegmenter ??= new Intl.Segmenter("und", {
-      granularity: "grapheme",
-    });
-    const clusters = Array.from(
-      graphemeSegmenter.segment(runText),
-      ({ segment }) => segment,
-    );
+    const clusters = splitGraphemes(runText);
     for (let i = clusters.length - 1; i >= 0; i--) {
       for (const char of clusters[i]) {
         const mirror = mirroringGlyph(BIDI, char.codePointAt(0));

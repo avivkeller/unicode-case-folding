@@ -3,8 +3,8 @@
 Titlecasing as defined by the Unicode Standard (toTitlecase, Section 3.13),
 generated from the latest Unicode Character Database: the first cased
 character of each word is mapped to titlecase, and the rest of the word to
-lowercase. Words are found with `Intl.Segmenter` (Unicode word boundaries,
-UAX #29) unless you pass your own segmenter.
+lowercase. Words are found with the Unicode word boundaries (UAX #29), from
+the same data, unless you pass your own segmenter.
 
 ## Installation
 
@@ -32,8 +32,8 @@ lookupTitlecase(0xdf); // [0x53, 0x73] ("ß" → "Ss")
 
 Returns the titlecased string. Options:
 
-- `locale`: a string or `Intl.Locale`, used for word boundaries and the
-  Lithuanian, Turkish and Azeri casing rules.
+- `locale`: a string or `Intl.Locale`, used for the Lithuanian, Turkish and
+  Azeri casing rules.
 - `segmenter`: an object with a `segment(string)` method returning
   `{ segment }` objects that cover the string, such as an
   `Intl.Segmenter`. Each segment is treated as a word.

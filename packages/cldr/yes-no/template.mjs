@@ -1,5 +1,6 @@
 import { assertString } from "@internal/helpers/assert";
 import { lookupLocale } from "@internal/helpers/locale";
+import { toLowercase } from "unicode-lowercase";
 import { ANSWERS, VERSION } from "#generated";
 
 export { VERSION };
@@ -13,9 +14,9 @@ export { VERSION };
 export function parseYesNo(answer, locale) {
   assertString(answer);
   const [yes, no] = lookupLocale(ANSWERS, locale);
-  const normalized = answer.trim().normalize("NFC").toLocaleLowerCase(locale);
+  const normalized = toLowercase(answer.trim().normalize("NFC"), { locale });
   const matches = (candidate) =>
-    candidate.toLocaleLowerCase(locale) === normalized;
+    toLowercase(candidate, { locale }) === normalized;
   if (yes.some(matches)) return true;
   if (no.some(matches)) return false;
   return undefined;

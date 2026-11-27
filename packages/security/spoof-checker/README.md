@@ -172,8 +172,8 @@ mixed-script confusable (Sections 4.1 and 4.2), mixed-number detection
 (Section 5.3), the contexts for joining controls (Section 3.1.1), and the IDN
 and email profiles (Sections 3.2 and 3.3).
 
-NFD and NFC come from the JavaScript engine (`String.prototype.normalize()`),
-so characters newer than the engine's Unicode version are not normalized.
+NFD and NFC use the same Unicode version as the rest of the data, not the
+JavaScript engine's.
 
 ## License
 

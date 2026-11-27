@@ -22,6 +22,9 @@ latest data every month.
 | [`unicode-line-break`](packages/ucd/line-break)             | Line break opportunities (UAX #14)                                               |
 | [`unicode-bidi`](packages/ucd/bidi)                         | The Unicode Bidirectional Algorithm (UAX #9)                                     |
 | [`unicode-age`](packages/ucd/age)                           | The Unicode version that introduced a character                                  |
+| [`unicode-normalize`](packages/ucd/normalize)               | Normalization: NFC, NFD, NFKC and NFKD (UAX #15)                                 |
+| [`unicode-text-segmentation`](packages/ucd/segmenter)       | Grapheme cluster, word and sentence boundaries (UAX #29)                         |
+| [`unicode-script-property`](packages/ucd/script)            | The script of a character and its script extensions (UAX #24)                    |
 | [`unicode-pinyin`](packages/ucd/pinyin)                     | Mandarin readings of Chinese characters, from Unihan                             |
 
 ### From the Unicode security data
@@ -45,6 +48,7 @@ latest data every month.
 | [`cldr-region-currency`](packages/cldr/region-currency) | The currency of a region, now or on a date, and its rounding                |
 | [`cldr-windows-zones`](packages/cldr/windows-zones)     | Windows time zones ↔ IANA time zones                                        |
 | [`cldr-yes-no`](packages/cldr/yes-no)                   | Yes/no answers in any language, for command-line prompts                    |
+| [`cldr-likely-subtags`](packages/cldr/likely-subtags)   | The likely script and region of a locale ("zh-TW" ↔ "zh-Hant-TW")           |
 
 ## Development
 
@@ -56,11 +60,32 @@ npm run lint
 npm run format
 ```
 
+A package can import another one by its name, such as
+`import { toTitlecase } from "unicode-titlecase"`: the build bundles it, so
+the published packages stay dependency-free.
+
 ### Releases
 
-A monthly workflow rebuilds every package from the latest data, compares
-each with its latest release on npm, and publishes the ones that changed
-with a patch version bump.
+Packages are released in two ways, both by the
+[Release workflow](.github/workflows/bump-version.yml):
+
+- **New data.** Every month, the workflow rebuilds every package from the
+  latest data, compares each with its latest release on npm, and publishes
+  the ones that changed with a patch version bump, without a pull request.
+- **Changes made by people.** A pull request that changes a package adds a
+  changeset, always a minor one:
+
+  ```sh
+  npx changeset add --minor <package> -m "What changed, for the users of the package"
+  ```
+
+  With changesets on `main`, the workflow keeps a "Version Packages" pull
+  request open, which bumps the versions and writes the changelogs. Merging
+  it publishes the packages. Until then, the monthly release skips the
+  packages that have a changeset.
+
+A new package is published once by hand (`npm publish packages/…/dist`),
+then set up for trusted publishing from the Release workflow.
 
 ## License
 

@@ -6,6 +6,12 @@ import { generatedData } from "./generated-data.mjs";
 import { ROOT, findPackages, writeManifest } from "./packages.mjs";
 
 const packages = await findPackages(process.argv.slice(2));
+const templates = new Map(
+  (await findPackages()).map((pkg) => [
+    pkg.name,
+    path.join(pkg.dir, "template.mjs"),
+  ]),
+);
 await Promise.all(packages.map(buildPackage));
 
 async function buildPackage(pkg) {
@@ -14,6 +20,7 @@ async function buildPackage(pkg) {
     input: { index: path.join(pkg.dir, "template.mjs") },
     platform: "neutral",
     plugins: [
+      siblingPackages(),
       generatedData(),
       dts({ emitJs: true, tsconfig: path.join(ROOT, "tsconfig.json") }),
     ],
@@ -44,4 +51,15 @@ async function buildPackage(pkg) {
   const { code } = chunks.find((chunk) => chunk.fileName === "index.mjs");
   const kilobytes = (Buffer.byteLength(code) / 1024).toFixed(1);
   console.log(`  ${pkg.name} (${kilobytes} kB)`);
+}
+
+/**
+ * Bundles a package that another one imports by name
+ * @returns {import("rolldown").Plugin}
+ */
+function siblingPackages() {
+  return {
+    name: "sibling-packages",
+    resolveId: (source) => templates.get(source),
+  };
 }

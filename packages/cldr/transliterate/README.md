@@ -114,9 +114,8 @@ its own and for tens of thousands of random and real texts, and the package
 passes all of CLDR's transform test data for these transforms (14,517
 cases). It differs from ICU in two cases:
 
-- Normalization uses the JavaScript engine's `String.prototype.normalize()`,
-  and Thai word boundaries its `Intl.Segmenter`, so characters newer than
-  the engine's Unicode version may be ordered or segmented differently.
+- Thai word boundaries come from the JavaScript engine's `Intl.Segmenter`,
+  so words may be separated differently than by ICU's own version.
 - Rules that copy text matched before the cursor, such as those for the
   Japanese iteration marks ゝ and ヽ, copy half of a UTF-16 surrogate pair in
   ICU when a character outside the Basic Multilingual Plane is at the start

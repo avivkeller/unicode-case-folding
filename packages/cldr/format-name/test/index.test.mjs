@@ -123,6 +123,48 @@ test("formatName", async (t) => {
     );
   });
 
+  await t.test(
+    "finds the script of a name after digits and punctuation",
+    () => {
+      assert.equal(
+        formatName({ given: "1 一郎", surname: "(安藤)" }, { locale: "en" }),
+        "(安藤)1一郎",
+      );
+      assert.equal(
+        formatName({ given: "1 Ichiro", surname: "(Ando)" }, { locale: "ja" }),
+        "1 Ichiro (Ando)",
+      );
+    },
+  );
+
+  await t.test("capitalizes with the Unicode case mappings", () => {
+    const options = {
+      locale: "ca",
+      order: "surnameFirst",
+      length: "long",
+      formality: "formal",
+    };
+    const format = (surname) => formatName({ given: "Jan", surname }, options);
+    assert.equal(format("van den berg"), "Van den berg Jan");
+    assert.equal(format("ǆemal"), "ǅemal Jan");
+    assert.equal(format("ǅemal"), "ǅemal Jan");
+    assert.equal(format("ßen"), "Ssen Jan");
+    assert.equal(format("'t hooft"), "'t hooft Jan");
+    assert.equal(format("ქართული"), "ქართული Jan");
+    assert.equal(
+      formatName(
+        { given: "ilker", surname: "ınan" },
+        {
+          locale: "tr",
+          usage: "monogram",
+          length: "long",
+          formality: "formal",
+        },
+      ),
+      "İI",
+    );
+  });
+
   await t.test("formats mononyms", () => {
     assert.equal(formatName({ given: "Zendaya" }, { locale: "fr" }), "Zendaya");
   });

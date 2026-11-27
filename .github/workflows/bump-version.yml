@@ -1,18 +1,23 @@
-name: Release Changed Packages
+name: Release
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
   schedule:
     # Once a month, to pick up new UCD and CLDR releases
     - cron: "0 0 1 * *"
 
 permissions: {}
 
+concurrency: release
+
 jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
       id-token: write
 
     steps:
@@ -38,9 +43,23 @@ jobs:
       - name: Run tests
         run: npm test
 
-      # Compares each package with its latest release on npm, and publishes
-      # the ones that changed with a patch version bump
-      - name: Publish changed packages
+      # Changes made by people: with changesets on main, opens or updates the
+      # "Version Packages" pull request (minor bumps and changelogs)
+      - name: Open the changeset release pull request
+        if: github.event_name == 'push'
+        id: changesets
+        uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+
+      # Once that pull request is merged, publishes the versions it bumped
+      - name: Publish changeset releases
+        if: github.event_name == 'push' && steps.changesets.outputs.has-changesets == 'false'
+        run: npm run release -- --bumped
+
+      # New data: compares each package with its latest release on npm, and
+      # publishes the ones that changed with a patch version bump, without a
+      # pull request. Packages with a changeset wait for their minor release
+      - name: Publish packages changed by new data
+        if: github.event_name != 'push'
         id: release
         run: npm run release
 
@@ -53,5 +72,6 @@ jobs:
           gh auth setup-git
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git diff --quiet || git commit -am "Release $RELEASED"
+          git add packages
+          git diff --cached --quiet || git commit -m "Release $RELEASED"
           git push

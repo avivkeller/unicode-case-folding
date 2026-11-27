@@ -1,0 +1,18 @@
+{
+  "name": "cldr-likely-subtags",
+  "version": "1.0.0",
+  "description": "Add or remove the likely script and region of a locale (\"zh-TW\" ↔ \"zh-Hant-TW\"), like Intl.Locale's maximize() and minimize(), based on the official Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "likely-subtags",
+    "locale",
+    "maximize",
+    "minimize",
+    "bcp47",
+    "i18n"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

@@ -2,14 +2,26 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
+import { readChangesets } from "@changesets/read";
 import { parseTarGzip } from "nanotar";
 import semver from "semver";
-import { findPackages, writeManifest } from "./packages.mjs";
+import { ROOT, findPackages, writeManifest } from "./packages.mjs";
 
 const { values, positionals } = parseArgs({
-  options: { "dry-run": { type: "boolean" } },
+  options: {
+    "dry-run": { type: "boolean" },
+    // Only publish the versions that a changeset release bumped
+    bumped: { type: "boolean" },
+  },
   allowPositionals: true,
 });
+
+// Packages with a changeset wait for their minor release
+const awaitingRelease = new Set(
+  (await readChangesets(ROOT)).flatMap(({ releases }) =>
+    releases.map(({ name }) => name),
+  ),
+);
 
 const released = [];
 for (const pkg of await findPackages(positionals)) {
@@ -22,24 +34,30 @@ for (const pkg of await findPackages(positionals)) {
     continue;
   }
   const latest = await response.json();
-  const tarball = await fetch(latest.dist.tarball);
-  const files = await parseTarGzip(await tarball.arrayBuffer());
 
-  const changed = await changedFiles(pkg, files);
-  if (changed.length === 0) continue;
+  let version = pkg.version;
+  if (semver.gt(version, latest.version)) {
+    console.log(`${pkg.name}@${version}: not published yet`);
+    if (values["dry-run"]) continue;
+  } else {
+    if (values.bumped || awaitingRelease.has(pkg.name)) continue;
+    const tarball = await fetch(latest.dist.tarball);
+    const files = await parseTarGzip(await tarball.arrayBuffer());
+    const changed = await changedFiles(pkg, files);
+    if (changed.length === 0) continue;
 
-  const version = semver.gt(pkg.version, latest.version)
-    ? pkg.version
-    : semver.inc(latest.version, "patch");
-  console.log(`${pkg.name}@${version}: ${changed.join(", ")} changed`);
-  if (values["dry-run"]) continue;
+    version = semver.inc(latest.version, "patch");
+    console.log(`${pkg.name}@${version}: ${changed.join(", ")} changed`);
+    if (values["dry-run"]) continue;
 
-  pkg.manifest.version = version;
-  await fs.writeFile(
-    path.join(pkg.dir, "package.json"),
-    `${JSON.stringify(pkg.manifest, null, 2)}\n`,
-  );
-  await writeManifest(pkg);
+    pkg.manifest.version = version;
+    await fs.writeFile(
+      path.join(pkg.dir, "package.json"),
+      `${JSON.stringify(pkg.manifest, null, 2)}\n`,
+    );
+    await addChangelogEntry(pkg, version);
+    await writeManifest(pkg);
+  }
   execFileSync("npm", ["publish", pkg.distDir, "--provenance"], {
     stdio: "inherit",
   });
@@ -50,6 +68,19 @@ if (process.env.GITHUB_OUTPUT && released.length) {
   await fs.appendFile(
     process.env.GITHUB_OUTPUT,
     `released=${released.join(", ")}\n`,
+  );
+}
+
+async function addChangelogEntry(pkg, version) {
+  const file = path.join(pkg.dir, "CHANGELOG.md");
+  const title = `# ${pkg.name}\n`;
+  const changelog = await fs.readFile(file, "utf8").catch(() => title);
+  const entry = `\n## ${version}\n\n### Patch Changes\n\n- Rebuilt from the latest Unicode data\n`;
+  await fs.writeFile(
+    file,
+    changelog.startsWith(title)
+      ? title + entry + changelog.slice(title.length)
+      : title + entry + "\n" + changelog,
   );
 }
 

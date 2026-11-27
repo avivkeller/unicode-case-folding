@@ -1,5 +1,6 @@
 import { assertString } from "@internal/helpers/assert";
 import { inSet } from "@internal/helpers/tables";
+import { normalize } from "unicode-normalize";
 import { ASCII_MAP, MARK_BASES, REMOVABLE_MARKS, VERSION } from "#generated";
 
 export { VERSION };
@@ -32,13 +33,13 @@ export function toAscii(input, { replacement = "?" } = {}) {
 function removeMarks(input) {
   let result = "";
   let afterBase = false;
-  for (const char of input.normalize("NFD")) {
+  for (const char of normalize(input, "NFD")) {
     const codePoint = char.codePointAt(0);
     if (afterBase && inSet(REMOVABLE_MARKS, codePoint)) continue;
     afterBase = inSet(MARK_BASES, codePoint);
     result += char;
   }
-  return result.normalize("NFC");
+  return normalize(result, "NFC");
 }
 
 export default { toAscii, VERSION };

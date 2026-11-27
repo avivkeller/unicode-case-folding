@@ -1,0 +1,17 @@
+{
+  "name": "unicode-script-property",
+  "version": "1.0.0",
+  "description": "The script of a character (Latin, Cyrillic, Han…) and its script extensions (UAX #24), based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "script",
+    "script-extensions",
+    "uax24",
+    "iso-15924",
+    "i18n"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

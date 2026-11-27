@@ -1,5 +1,6 @@
 import { assertCodePoint, assertString } from "@internal/helpers/assert";
 import { toCodePoints } from "@internal/helpers/tables";
+import { normalize } from "unicode-normalize";
 import { FOLDING_MAP, VERSION } from "#generated";
 
 export { VERSION };
@@ -16,10 +17,10 @@ export function caseFold(input) {
   if (!NON_ASCII.test(input)) return input.toLowerCase();
 
   let result = "";
-  for (const char of input.normalize("NFD")) {
+  for (const char of normalize(input, "NFD")) {
     result += FOLDING_MAP.get(char.codePointAt(0)) ?? char;
   }
-  return result.normalize("NFC");
+  return normalize(result, "NFC");
 }
 
 /**

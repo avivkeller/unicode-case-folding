@@ -4,7 +4,12 @@ import {
   normalizeLocale,
   resolveLocale,
 } from "@internal/helpers/locale";
-import { VERSION, PATTERNS, PERSON_NAMES, SCRIPTS } from "#generated";
+import { getLikelySubtags, maximize } from "cldr-likely-subtags";
+import { getScript } from "unicode-script-property";
+import { splitGraphemes } from "unicode-text-segmentation";
+import { toTitlecase } from "unicode-titlecase";
+import { toUppercase } from "unicode-uppercase";
+import { PATTERNS, PERSON_NAMES, VERSION } from "#generated";
 
 export { VERSION };
 
@@ -35,6 +40,8 @@ const MODIFIERS = [
   "genitive",
 ];
 
+// Unknown, common and inherited
+const NO_SCRIPT = ["Zzzz", "Zyyy", "Zinh"];
 const SCRIPT_SETS = {
   Jpan: ["Hani", "Hira", "Kana"],
   Kore: ["Hang", "Hani"],
@@ -48,18 +55,6 @@ const SPACE_SEPARATOR = /[\p{Zs}\p{Zl}\p{Zp}]/u;
 // java.util.regex "\s", used for space replacement
 const SPACES = /[ \t\n\v\f\r]+/g;
 const LETTER = /^\p{L}/u;
-const TITLECASE_START = /[\p{L}\p{N}\p{S}\p{Co}]/u;
-const TITLECASE = {
-  Ǆ: "ǅ",
-  ǆ: "ǅ",
-  Ǉ: "ǈ",
-  ǉ: "ǈ",
-  Ǌ: "ǋ",
-  ǌ: "ǋ",
-  Ǳ: "ǲ",
-  ǳ: "ǲ",
-};
-
 const FIELD_GIVEN_FIRST_LOCALES = 0;
 const FIELD_SURNAME_FIRST_LOCALES = 1;
 const FIELD_LENGTH = 2;
@@ -70,8 +65,9 @@ const FIELD_INITIAL = 6;
 const FIELD_INITIAL_SEQUENCE = 7;
 const FIELD_PATTERNS = 8;
 
-let segmenters;
-let scriptTests;
+const WHOLE = { segment: (input) => [{ segment: input }] };
+
+let wordSegmenter;
 const parsedPatterns = new Map();
 const orderSets = new WeakMap();
 
@@ -102,19 +98,17 @@ export function formatName(name, options) {
     nameLocale = replaceScript(person.locale, nameScript);
     orderingLocale = person.locale;
   } else if (nameScript !== "Zzzz") {
-    orderingLocale = maximize(`und-${nameScript}`).baseName;
-    nameLocale = `${maximize(orderingLocale).language}-${nameScript}`;
+    orderingLocale = maximize(`und-${nameScript}`);
+    nameLocale = `${getLikelySubtags(orderingLocale).language}-${nameScript}`;
   }
   if (
     nameScript !== "Zzzz" &&
-    !scriptsMatch(nameScript, maximize(formatter).script)
+    !scriptsMatch(nameScript, getLikelySubtags(formatter).script)
   ) {
     formatter = resolveLocale(PERSON_NAMES, nameLocale);
-    if (!scriptsMatch(nameScript, maximize(formatter).script)) {
-      const region = maximize(nameLocale).region;
-      formatter = maximize(
-        `und-${nameScript}${region ? `-${region}` : ""}`,
-      ).baseName;
+    if (!scriptsMatch(nameScript, getLikelySubtags(formatter).script)) {
+      const region = getLikelySubtags(nameLocale).region;
+      formatter = maximize(`und-${nameScript}${region ? `-${region}` : ""}`);
     }
     data = lookupLocale(PERSON_NAMES, formatter);
   }
@@ -340,7 +334,7 @@ function formatField(person, field, modifiers, data, locale) {
   for (const modifier of found.remaining) {
     switch (modifier) {
       case "allCaps":
-        value = value.toLocaleUpperCase(locale);
+        value = toUppercase(value, { locale });
         break;
       case "initialCap":
         value = titlecaseFirst(value, locale);
@@ -373,7 +367,9 @@ function coalesceLiterals(before, after) {
 function initials(value, data, retain) {
   let result = null;
   let separator = null;
-  for (const { segment } of getSegmenters().word.segment(value)) {
+  // Names in Chinese, Japanese or Thai need the engine's dictionaries
+  wordSegmenter ??= new Intl.Segmenter("und", { granularity: "word" });
+  for (const { segment } of wordSegmenter.segment(value)) {
     if (LETTER.test(segment)) {
       const initial = format(data[FIELD_INITIAL], firstGrapheme(segment));
       if (separator !== null) result = (result ?? "") + separator + initial;
@@ -387,17 +383,9 @@ function initials(value, data, retain) {
 }
 
 function titlecaseFirst(value, locale) {
-  const match = TITLECASE_START.exec(value);
-  if (!match) return value;
-  const char = String.fromCodePoint(value.codePointAt(match.index));
-  let title = TITLECASE[char];
-  if (title === undefined) {
-    const upper = char.toLocaleUpperCase(locale);
-    const [first, ...rest] = upper;
-    title = first + rest.join("").toLocaleLowerCase(locale);
-  }
+  const first = firstGrapheme(value);
   return (
-    value.slice(0, match.index) + title + value.slice(match.index + char.length)
+    toTitlecase(first, { locale, segmenter: WHOLE }) + value.slice(first.length)
   );
 }
 
@@ -430,17 +418,9 @@ function findScript(person) {
   const text =
     (fieldValue(person, "surname", [])?.value ?? "") +
     (fieldValue(person, "given", [])?.value ?? "");
-  scriptTests ??= SCRIPTS.flatMap((script) => {
-    try {
-      return [[script, new RegExp(`\\p{Script=${script}}`, "u")]];
-    } catch {
-      return []; // A script newer than the JavaScript engine
-    }
-  });
   for (const char of text) {
-    for (const [script, test] of scriptTests) {
-      if (test.test(char)) return script;
-    }
+    const script = getScript(char.codePointAt(0));
+    if (!NO_SCRIPT.includes(script)) return script;
   }
   return "Zzzz";
 }
@@ -452,7 +432,7 @@ function scriptsMatch(a, b) {
 }
 
 function sharesLanguageAndScript(a, b) {
-  const [x, y] = [maximize(a), maximize(b)];
+  const [x, y] = [getLikelySubtags(a), getLikelySubtags(b)];
   const languagesMatch =
     x.language === y.language ||
     (CJK_LANGUAGES.includes(x.language) && CJK_LANGUAGES.includes(y.language));
@@ -463,10 +443,6 @@ function replaceScript(locale, script) {
   if (script === "Zzzz") return locale;
   const { language, region } = new Intl.Locale(locale);
   return [language, script, region].filter(Boolean).join("-");
-}
-
-function maximize(locale) {
-  return new Intl.Locale(locale).maximize();
 }
 
 function sortModifiers(modifiers) {
@@ -484,18 +460,7 @@ function compareModifiers(a, b) {
 }
 
 function firstGrapheme(value) {
-  for (const { segment } of getSegmenters().grapheme.segment(value)) {
-    return segment;
-  }
-  return value;
-}
-
-function getSegmenters() {
-  segmenters ??= {
-    word: new Intl.Segmenter("und", { granularity: "word" }),
-    grapheme: new Intl.Segmenter("und", { granularity: "grapheme" }),
-  };
-  return segmenters;
+  return splitGraphemes(value)[0] ?? value;
 }
 
 function isWhitespace(char) {
@@ -518,8 +483,15 @@ function format(pattern, ...values) {
 export default { formatName, VERSION };
 
 /**
- * A person's name, with at least a given name or a surname.
- * @typedef {object} PersonName
+ * @typedef {"title" | "given" | "given2" | "surname" | "surname2" | "generation" | "credentials"} NameField
+ */
+
+/**
+ * @typedef {"informal" | "allCaps" | "initialCap" | "initial" | "retain" | "monogram" | "prefix" | "core" | "vocative" | "genitive"} NameModifier
+ */
+
+/**
+ * @typedef {object} PersonNameFields
  * @property {string} [title]
  * @property {string} [given]
  * @property {string} [given-informal]
@@ -532,6 +504,12 @@ export default { formatName, VERSION };
  * @property {string} [credentials]
  * @property {string | Intl.Locale} [locale] Inferred from the name's script if missing
  * @property {"givenFirst" | "surnameFirst"} [preferredOrder] Overrides the locale's order
+ */
+
+/**
+ * A person's name, with at least a given name or a surname. Any field can be
+ * followed by modifiers to give a variant of it, such as `given-vocative`.
+ * @typedef {PersonNameFields & { [K in `${NameField}-${NameModifier}` | `${NameField}-${NameModifier}-${NameModifier}` | `${NameField}-${NameModifier}-${NameModifier}-${string}`]?: string } & ({ given: string } | { surname: string })} PersonName
  */
 
 /**

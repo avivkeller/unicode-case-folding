@@ -1,0 +1,20 @@
+{
+  "name": "unicode-text-segmentation",
+  "version": "1.0.0",
+  "description": "Unicode Text Segmentation (UAX #29): grapheme clusters, words and sentences, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "segmenter",
+    "segmentation",
+    "uax29",
+    "grapheme",
+    "grapheme-cluster",
+    "word-break",
+    "sentence-break",
+    "i18n"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

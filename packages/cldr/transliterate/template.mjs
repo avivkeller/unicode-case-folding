@@ -1,5 +1,6 @@
 import { assertString } from "@internal/helpers/assert";
 import { inSet, lookupRange, toCodePoints } from "@internal/helpers/tables";
+import { normalize } from "unicode-normalize";
 import {
   ALIASES,
   ANY_LATIN_IDS,
@@ -436,7 +437,7 @@ function applyUnfiltered(transform, input, outer) {
     case RULES:
       return applyRules(transform, input, outer);
     case NORMALIZE:
-      return toCodePoints(fromCodePoints(input).normalize(transform[FORM]));
+      return toCodePoints(normalize(fromCodePoints(input), transform[FORM]));
     default:
       return breakWords(input, outer);
   }

@@ -11,6 +11,7 @@ import {
   visualRuns,
 } from "@internal/helpers/bidi";
 import { inSet, lookupRange } from "@internal/helpers/tables";
+import { normalize } from "unicode-normalize";
 import {
   ALLOWED_TYPE_LISTS,
   AUGMENTED_SCRIPT_SETS,
@@ -48,7 +49,7 @@ export function skeleton(input, options = {}) {
     for (const char of input) {
       mapped += CONFUSABLES.get(char.charCodeAt(0)) ?? char;
     }
-    return NON_ASCII.test(mapped) ? mapped.normalize("NFD") : mapped;
+    return NON_ASCII.test(mapped) ? normalize(mapped, "NFD") : mapped;
   }
   return internalSkeleton(displayOrder(input, direction));
 }
@@ -108,7 +109,7 @@ export function isMixedScript(input) {
  */
 export function getRestrictionLevel(identifier) {
   assertString(identifier);
-  const normalized = identifier.normalize("NFC");
+  const normalized = normalize(identifier, "NFC");
   for (const char of normalized) {
     if (!isAllowedInProfile(char)) return "unrestricted";
   }
@@ -167,20 +168,20 @@ export function getIdentifierTypes(codePoint) {
 
 function internalSkeleton(input) {
   let mapped = "";
-  for (const char of input.normalize("NFD")) {
+  for (const char of normalize(input, "NFD")) {
     const codePoint = char.codePointAt(0);
     if (!inSet(DEFAULT_IGNORABLES, codePoint)) {
       mapped += CONFUSABLES.get(codePoint) ?? char;
     }
   }
-  return mapped.normalize("NFD");
+  return normalize(mapped, "NFD");
 }
 
 // "ü" is allowed if "u" and the combining diaeresis are
 function isAllowedInProfile(char) {
   const allowed = (part) =>
     ALLOWED_TYPE_LISTS.has(identifierTypeList(part.codePointAt(0)));
-  return allowed(char) || Array.from(char.normalize("NFD")).every(allowed);
+  return allowed(char) || Array.from(normalize(char, "NFD")).every(allowed);
 }
 
 // Script sets are sorted arrays of script codes, or null for ALL
