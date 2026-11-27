@@ -79,7 +79,11 @@ function clusterWidth(cluster, ambiguousWidth) {
   return 0;
 }
 
-export default { displayWidth, codePointWidth, VERSION };
+export default /* @__PURE__ */ Object.assign(displayWidth, {
+  displayWidth,
+  codePointWidth,
+  VERSION,
+});
 
 /**
  * @typedef {object} DisplayWidthOptions

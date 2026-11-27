@@ -1,0 +1,19 @@
+{
+  "name": "cldr-region-languages",
+  "version": "1.0.0",
+  "description": "Find the languages spoken in a country or region, with their official status and share of the population, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "language",
+    "country",
+    "region",
+    "official-language",
+    "population",
+    "i18n",
+    "locale"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

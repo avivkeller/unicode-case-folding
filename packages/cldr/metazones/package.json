@@ -1,0 +1,19 @@
+{
+  "name": "cldr-metazones",
+  "version": "1.0.0",
+  "description": "Group IANA time zones into metazones (\"America/Los_Angeles\" is in \"America_Pacific\"), for time zone pickers, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "metazone",
+    "timezone",
+    "time-zone",
+    "iana",
+    "tzdata",
+    "timezone-picker",
+    "i18n"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

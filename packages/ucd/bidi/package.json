@@ -13,6 +13,9 @@
     "hebrew",
     "i18n"
   ],
+  "specs": {
+    "https://www.unicode.org/reports/tr9/": 52
+  },
   "imports": {
     "#generated": "./generate.mjs"
   }

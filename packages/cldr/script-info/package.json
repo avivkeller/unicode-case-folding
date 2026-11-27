@@ -1,0 +1,19 @@
+{
+  "name": "cldr-script-info",
+  "version": "1.0.0",
+  "description": "Find whether a script has uppercase, needs an input method or needs text shaping, and which scripts a language is written in, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "script",
+    "writing-system",
+    "iso-15924",
+    "ime",
+    "text-shaping",
+    "i18n",
+    "locale"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

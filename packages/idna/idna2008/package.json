@@ -1,0 +1,20 @@
+{
+  "name": "unicode-idna2008",
+  "version": "1.0.0",
+  "description": "Check whether a domain name or label is valid under strict IDNA2008 (RFC 5891, 5892 and 5893), as domain registries require, based on the official Unicode IDNA2008 data",
+  "keywords": [
+    "unicode",
+    "idna",
+    "idna2008",
+    "idn",
+    "domain",
+    "hostname",
+    "validation",
+    "rfc5891",
+    "rfc5892",
+    "rfc5893"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

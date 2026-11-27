@@ -285,7 +285,7 @@ function reverse(array, start, end) {
   }
 }
 
-export default {
+export default /* @__PURE__ */ Object.assign(areConfusable, {
   skeleton,
   areConfusable,
   getConfusableType,
@@ -295,7 +295,7 @@ export default {
   isAllowedInIdentifier,
   getIdentifierTypes,
   VERSION,
-};
+});
 
 /** @typedef {"ltr" | "rtl" | "auto"} Direction */
 

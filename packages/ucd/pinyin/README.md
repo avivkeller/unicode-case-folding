@@ -24,6 +24,9 @@ getPinyin(0x5973); // "nǚ"
 getPinyin(0x5256, { locale: "zh-TW" }); // "pǒ" (pōu in mainland China)
 ```
 
+The default export is `toPinyin`, with every export as a property:
+`import toPinyin from "unicode-pinyin"`.
+
 ## API
 
 ### `toPinyin(text, options?)`

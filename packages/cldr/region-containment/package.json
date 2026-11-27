@@ -1,0 +1,20 @@
+{
+  "name": "cldr-region-containment",
+  "version": "1.0.0",
+  "description": "Find whether a country is in a continent, a UN region, the EU or the eurozone, and list the countries of a region, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "region",
+    "country",
+    "continent",
+    "european-union",
+    "eurozone",
+    "un-m49",
+    "containment",
+    "i18n"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

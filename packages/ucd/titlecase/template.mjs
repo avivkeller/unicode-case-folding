@@ -72,4 +72,9 @@ export function lookupTitlecase(codePoint) {
   return mapping === undefined ? undefined : toCodePoints(mapping);
 }
 
-export default { toTitlecase, isTitlecase, lookupTitlecase, VERSION };
+export default /* @__PURE__ */ Object.assign(toTitlecase, {
+  toTitlecase,
+  isTitlecase,
+  lookupTitlecase,
+  VERSION,
+});

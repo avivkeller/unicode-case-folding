@@ -328,10 +328,10 @@ function pairTable() {
   return table;
 }
 
-export default {
+export default /* @__PURE__ */ Object.assign(normalize, {
   normalize,
   isNormalized,
   lookupDecomposition,
   getCombiningClass,
   VERSION,
-};
+});

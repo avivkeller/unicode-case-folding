@@ -12,6 +12,9 @@
     "bcp47",
     "i18n"
   ],
+  "specs": {
+    "https://www.unicode.org/reports/tr35/tr35.html": 79
+  },
   "imports": {
     "#generated": "./generate.mjs"
   }

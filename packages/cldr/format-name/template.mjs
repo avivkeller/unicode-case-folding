@@ -480,7 +480,10 @@ function format(pattern, ...values) {
   return pattern.replace(/\{(\d)\}/g, (_, i) => values[i]);
 }
 
-export default { formatName, VERSION };
+export default /* @__PURE__ */ Object.assign(formatName, {
+  formatName,
+  VERSION,
+});
 
 /**
  * @typedef {"title" | "given" | "given2" | "surname" | "surname2" | "generation" | "credentials"} NameField

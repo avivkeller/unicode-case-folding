@@ -28,6 +28,9 @@ toUppercase("istanbul", { locale: "tr" }); // "İSTANBUL"
 isUppercase("STRASSE"); // true
 ```
 
+The default export is `toUppercase`, with every export as a property:
+`import toUppercase from "unicode-uppercase"`.
+
 ## API
 
 ### `toUppercase(string, options?)`

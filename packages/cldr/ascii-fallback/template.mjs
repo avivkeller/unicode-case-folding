@@ -42,4 +42,7 @@ function removeMarks(input) {
   return normalize(result, "NFC");
 }
 
-export default { toAscii, VERSION };
+export default /* @__PURE__ */ Object.assign(toAscii, {
+  toAscii,
+  VERSION,
+});

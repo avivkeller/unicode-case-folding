@@ -597,7 +597,7 @@ function checkRegion(region) {
   return region.toUpperCase();
 }
 
-export default {
+export default /* @__PURE__ */ Object.assign(formatMeasure, {
   convertUnit,
   getPreferredUnits,
   convertToPreferredUnits,
@@ -605,7 +605,7 @@ export default {
   getMeasurementSystem,
   getPaperSize,
   VERSION,
-};
+});
 
 /**
  * Options that choose unit preferences

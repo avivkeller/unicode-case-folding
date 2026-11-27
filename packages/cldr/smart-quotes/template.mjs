@@ -109,7 +109,12 @@ function isAbbreviatedYear(chars, i) {
   );
 }
 
-export default { getQuotes, quote, smartQuotes, VERSION };
+export default /* @__PURE__ */ Object.assign(smartQuotes, {
+  getQuotes,
+  quote,
+  smartQuotes,
+  VERSION,
+});
 
 /**
  * @typedef {object} Quotes

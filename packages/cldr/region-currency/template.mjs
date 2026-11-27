@@ -58,7 +58,12 @@ export function getCurrencyRounding(currency) {
   };
 }
 
-export default { getCurrency, getCurrencies, getCurrencyRounding, VERSION };
+export default /* @__PURE__ */ Object.assign(getCurrency, {
+  getCurrency,
+  getCurrencies,
+  getCurrencyRounding,
+  VERSION,
+});
 
 /**
  * @typedef {object} CurrencyRounding

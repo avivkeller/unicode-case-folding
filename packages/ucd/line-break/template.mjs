@@ -410,7 +410,11 @@ function isEastAsian(codePoint) {
   return inSet(EAST_ASIAN, codePoint);
 }
 
-export default { findLineBreaks, splitAtLineBreaks, VERSION };
+export default /* @__PURE__ */ Object.assign(findLineBreaks, {
+  findLineBreaks,
+  splitAtLineBreaks,
+  VERSION,
+});
 
 /**
  * @typedef {object} LineBreak

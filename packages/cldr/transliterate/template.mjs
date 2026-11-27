@@ -760,9 +760,36 @@ function fromCodePoints(codePoints) {
   return string;
 }
 
-export default {
+export default /* @__PURE__ */ Object.assign(transliterate, {
   transliterate,
   toLatin,
   getTransformIds,
+  arabicToLatin,
+  armenianToLatin,
+  bengaliToLatin,
+  bopomofoToLatin,
+  cyrillicToLatin,
+  devanagariToLatin,
+  ethiopicToLatin,
+  georgianToLatin,
+  greekToLatin,
+  gujaratiToLatin,
+  gurmukhiToLatin,
+  hanToLatin,
+  hantToLatin,
+  hangulToLatin,
+  hebrewToLatin,
+  hiraganaToLatin,
+  kannadaToLatin,
+  katakanaToLatin,
+  latinToAscii,
+  malayalamToLatin,
+  myanmarToLatin,
+  oriyaToLatin,
+  syriacToLatin,
+  tamilToLatin,
+  teluguToLatin,
+  thaanaToLatin,
+  thaiToLatin,
   VERSION,
-};
+});

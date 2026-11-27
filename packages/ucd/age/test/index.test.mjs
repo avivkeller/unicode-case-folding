@@ -43,6 +43,14 @@ test("agrees with \\p{Assigned} up to the engine's Unicode version", () => {
   }
 });
 
+test("default export", async () => {
+  const { default: main, ...named } = await import("../dist/index.mjs");
+  assert.equal(main, named.getAge);
+  for (const [name, value] of Object.entries(named)) {
+    assert.equal(main[name], value, name);
+  }
+});
+
 test("VERSION", () => {
   assert.match(VERSION, /^\d+\.\d+\.\d+$/);
 });

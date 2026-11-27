@@ -43,9 +43,9 @@ export function lookupFolding(codePoint) {
   return folding === undefined ? undefined : toCodePoints(folding);
 }
 
-export default {
+export default /* @__PURE__ */ Object.assign(caseFold, {
   caseFold,
   caseFoldEquals,
   lookupFolding,
   VERSION,
-};
+});

@@ -63,6 +63,9 @@ getMeasurementSystem("GB"); // "UK"
 getPaperSize("CA"); // "US-Letter"
 ```
 
+The default export is `formatMeasure`, with every export as a property:
+`import formatMeasure from "cldr-format-unit"`.
+
 ## API
 
 Units are CLDR unit identifiers:

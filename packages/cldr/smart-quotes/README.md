@@ -27,6 +27,9 @@ smartQuotes(`"She said 'hi'"`, "de");
 // "„She said ‚hi‘“"
 ```
 
+The default export is `smartQuotes`, with every export as a property:
+`import smartQuotes from "cldr-smart-quotes"`.
+
 ## API
 
 ### `getQuotes(locale)`

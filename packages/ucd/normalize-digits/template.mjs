@@ -51,4 +51,9 @@ function digitValue(codePoint) {
   return value <= 9 ? value : undefined;
 }
 
-export default { normalizeDigits, getDigitValue, getNumericValue, VERSION };
+export default /* @__PURE__ */ Object.assign(normalizeDigits, {
+  normalizeDigits,
+  getDigitValue,
+  getNumericValue,
+  VERSION,
+});

@@ -1,0 +1,23 @@
+{
+  "name": "unicode-identifier",
+  "version": "1.0.0",
+  "description": "Check programming language identifiers in any script (UAX #31): XID_Start and XID_Continue, Pattern_Syntax and Pattern_White_Space, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "identifier",
+    "uax31",
+    "xid-start",
+    "xid-continue",
+    "id-start",
+    "id-continue",
+    "pattern-syntax",
+    "parser"
+  ],
+  "specs": {
+    "https://www.unicode.org/reports/tr31/": 45
+  },
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

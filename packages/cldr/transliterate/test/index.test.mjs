@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import translit, {
+import {
   VERSION,
   cyrillicToLatin,
   getTransformIds,
@@ -124,9 +124,12 @@ test("getTransformIds", () => {
   }
 });
 
-test("default export", () => {
-  assert.equal(translit.toLatin, toLatin);
-  assert.equal(translit.VERSION, VERSION);
+test("default export", async () => {
+  const { default: main, ...named } = await import("../dist/index.mjs");
+  assert.equal(main, named.transliterate);
+  for (const [name, value] of Object.entries(named)) {
+    assert.equal(main[name], value, name);
+  }
 });
 
 test("VERSION", () => {

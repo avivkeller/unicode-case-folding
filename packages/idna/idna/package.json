@@ -1,0 +1,23 @@
+{
+  "name": "unicode-idna",
+  "version": "1.0.0",
+  "description": "Convert internationalized domain names to ASCII (Punycode) and back, and validate them, with Unicode IDNA Compatibility Processing (UTS #46), based on the official Unicode IDNA data",
+  "keywords": [
+    "unicode",
+    "idna",
+    "idn",
+    "uts46",
+    "punycode",
+    "domain",
+    "hostname",
+    "toASCII",
+    "toUnicode",
+    "url"
+  ],
+  "specs": {
+    "https://www.unicode.org/reports/tr46/": 36
+  },
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

@@ -68,6 +68,14 @@ test("getNumericValue", () => {
   assert.throws(() => getNumericValue("7"), TypeError);
 });
 
+test("default export", async () => {
+  const { default: main, ...named } = await import("../dist/index.mjs");
+  assert.equal(main, named.normalizeDigits);
+  for (const [name, value] of Object.entries(named)) {
+    assert.equal(main[name], value, name);
+  }
+});
+
 test("VERSION", () => {
   assert.match(VERSION, /^\d+\.\d+\.\d+$/);
 });

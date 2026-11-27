@@ -1,0 +1,22 @@
+{
+  "name": "cldr-hour-cycle",
+  "version": "1.0.0",
+  "description": "Find whether a locale uses the 12-hour or the 24-hour clock, and the hour cycles it accepts, like Intl.Locale.prototype.getHourCycles(), based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "hour-cycle",
+    "12-hour",
+    "24-hour",
+    "am-pm",
+    "getHourCycles",
+    "i18n",
+    "locale"
+  ],
+  "specs": {
+    "https://www.unicode.org/reports/tr35/tr35-dates.html": 79
+  },
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

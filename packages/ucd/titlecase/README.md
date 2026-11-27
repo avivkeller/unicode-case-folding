@@ -26,6 +26,9 @@ isTitlecase("Hello World"); // true
 lookupTitlecase(0xdf); // [0x53, 0x73] ("ß" → "Ss")
 ```
 
+The default export is `toTitlecase`, with every export as a property:
+`import toTitlecase from "unicode-titlecase"`.
+
 ## API
 
 ### `toTitlecase(string, options?)`

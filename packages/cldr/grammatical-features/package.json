@@ -1,0 +1,20 @@
+{
+  "name": "cldr-grammatical-features",
+  "version": "1.0.0",
+  "description": "Find the grammatical cases, genders and definiteness forms that the nouns of a language have, for translation and message formatting tools, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "grammar",
+    "grammatical-case",
+    "grammatical-gender",
+    "definiteness",
+    "inflection",
+    "messageformat",
+    "i18n",
+    "locale"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

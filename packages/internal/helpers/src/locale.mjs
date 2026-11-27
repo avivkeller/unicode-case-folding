@@ -39,6 +39,24 @@ export function lookupLocale(table, locale) {
   return table.values[table.locales.get(resolveLocale(table, locale))];
 }
 
+const REGION = /^(?:[A-Z]{2}|\d{3})$/;
+
+/** The region of a locale: -u-rg-, else its region subtag, else the likely one */
+export function localeRegion(tag, rg, likelyRegions) {
+  // "gbzzzz": region GB, no subdivision
+  if (rg && /^[a-z]{2}[a-z0-9]{1,4}$/.test(rg))
+    return rg.slice(0, 2).toUpperCase();
+
+  const [language, ...subtags] = tag.split("-");
+  const region = subtags.find((subtag) => REGION.test(subtag));
+  if (region) return region;
+  const script = subtags.find((subtag) => /^[A-Z][a-z]{3}$/.test(subtag));
+  return (
+    (script && likelyRegions.get(`${language}-${script}`)) ??
+    likelyRegions.get(language)
+  );
+}
+
 export function unicodeKeywords(tag) {
   const keywords = new Map();
   const subtags = tag.split("-x-")[0].split("-");

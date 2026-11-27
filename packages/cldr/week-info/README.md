@@ -23,6 +23,9 @@ getWeekInfo("ar-EG"); // { firstDay: 6, weekend: [5, 6], minimalDays: 1 }
 getWeekInfo("en-US-u-fw-mon").firstDay; // 1
 ```
 
+The default export is `getWeekInfo`, with every export as a property:
+`import getWeekInfo from "cldr-week-info"`.
+
 ## API
 
 ### `getWeekInfo(locale)`

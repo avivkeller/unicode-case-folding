@@ -20,3 +20,15 @@ export async function shortNames(property) {
       .map(([, short, long]) => [long, short]),
   );
 }
+
+/** Code point → value of a Unihan field: unihan("Unihan_Readings.txt", "kMandarin") */
+export async function unihan(file, field) {
+  const values = new Map();
+  for (const line of (await text(`Unihan.zip/${file}`)).split("\n")) {
+    if (line.startsWith("#")) continue;
+    const [code, name, value] = line.split("\t");
+    if (name === field) values.set(parseInt(code.slice(2), 16), value.trim());
+  }
+  if (values.size === 0) throw new Error(`${file} has no ${field}`);
+  return values;
+}

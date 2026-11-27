@@ -1,0 +1,17 @@
+{
+  "name": "unicode-general-category",
+  "version": "1.0.0",
+  "description": "Find the General_Category of a character (Lu, Nd, Zs…): letter, mark, number, punctuation, symbol, separator or other, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "general-category",
+    "category",
+    "letter",
+    "punctuation",
+    "uax44"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

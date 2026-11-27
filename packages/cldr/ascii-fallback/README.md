@@ -26,6 +26,9 @@ toAscii("Café 日本", { replacement: "" }); // "Cafe "
 toAscii("Café 日本", { replacement: null }); // "Cafe 日本"
 ```
 
+The default export is `toAscii`, with every export as a property:
+`import toAscii from "cldr-ascii-fallback"`.
+
 ## API
 
 ### `toAscii(text, options?)`

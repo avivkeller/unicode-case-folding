@@ -28,6 +28,9 @@ new Intl.NumberFormat(navigator.language, {
 }).format(9.99);
 ```
 
+The default export is `getCurrency`, with every export as a property:
+`import getCurrency from "cldr-region-currency"`.
+
 ## API
 
 ### `getCurrency(region, date?)`

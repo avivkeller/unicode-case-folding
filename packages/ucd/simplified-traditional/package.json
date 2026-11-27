@@ -1,0 +1,20 @@
+{
+  "name": "unicode-simplified-traditional",
+  "version": "1.0.0",
+  "description": "Convert Chinese text between simplified and traditional characters, character by character, based on the Unicode Han Database (Unihan)",
+  "keywords": [
+    "unicode",
+    "unihan",
+    "chinese",
+    "simplified",
+    "traditional",
+    "hanzi",
+    "conversion",
+    "variants",
+    "zh-Hans",
+    "zh-Hant"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

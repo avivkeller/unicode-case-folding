@@ -48,6 +48,9 @@ hanToLatin("北京"); // "běi jīng"
 latinToAscii(hanToLatin("北京")); // "bei jing"
 ```
 
+The default export is `transliterate`, with every export as a property:
+`import transliterate from "cldr-transliterate"`.
+
 ## API
 
 ### `toLatin(text, options?)`

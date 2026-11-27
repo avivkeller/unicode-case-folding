@@ -27,6 +27,9 @@ displayWidth("±", { ambiguousIsWide: true }); // 2
 codePointWidth(0x4e00); // 2
 ```
 
+The default export is `displayWidth`, with every export as a property:
+`import displayWidth from "unicode-display-width"`.
+
 ## API
 
 ### `displayWidth(text, options?)`

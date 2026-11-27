@@ -14,6 +14,9 @@
     "locale",
     "uts-35"
   ],
+  "specs": {
+    "https://www.unicode.org/reports/tr35/tr35-info.html": 79
+  },
   "imports": {
     "#generated": "./generate.mjs"
   }

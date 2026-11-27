@@ -1,0 +1,17 @@
+{
+  "name": "cldr-group-gender",
+  "version": "1.0.0",
+  "description": "Find the grammatical gender to use for a group of people (\"Tom and Mary\") from the gender of each person, in any language, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "gender",
+    "grammatical-gender",
+    "messageformat",
+    "i18n",
+    "locale"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

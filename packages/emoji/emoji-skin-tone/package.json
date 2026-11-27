@@ -1,0 +1,17 @@
+{
+  "name": "unicode-emoji-skin-tone",
+  "version": "1.0.0",
+  "description": "Apply, change, read and remove the skin tone of an emoji, including emoji of two people, based on the official Unicode emoji data",
+  "keywords": [
+    "unicode",
+    "emoji",
+    "skin-tone",
+    "emoji-modifier",
+    "fitzpatrick",
+    "zwj",
+    "uts51"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

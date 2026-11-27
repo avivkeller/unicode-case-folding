@@ -1,0 +1,19 @@
+{
+  "name": "unicode-vertical-orientation",
+  "version": "1.0.0",
+  "description": "Tell whether a character stays upright or is rotated sideways in vertical text (UAX #50 Vertical_Orientation), based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "vertical-orientation",
+    "vertical-text",
+    "uax50",
+    "writing-mode",
+    "text-orientation",
+    "cjk",
+    "layout"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

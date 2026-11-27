@@ -66,6 +66,9 @@ wrap("The quick brown fox jumps over the lazy dog.\nA second paragraph.", 16);
 // ["The quick brown", "fox jumps over", "the lazy dog.", "A second", "paragraph."]
 ```
 
+The default export is `findLineBreaks`, with every export as a property:
+`import findLineBreaks from "unicode-line-break"`.
+
 ## API
 
 ### `findLineBreaks(string)`

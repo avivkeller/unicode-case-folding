@@ -495,4 +495,8 @@ function groupDigits(text, [primary, secondary], separator) {
   return match[1] + groups.join(separator) + match[3];
 }
 
-export default { numberToWords, getRuleSets, VERSION };
+export default /* @__PURE__ */ Object.assign(numberToWords, {
+  numberToWords,
+  getRuleSets,
+  VERSION,
+});

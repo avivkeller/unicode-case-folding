@@ -47,6 +47,9 @@ caseFoldEquals("ad\u00ADmin", "Admin"); // true
 lookupFolding(0xad); // [] (removed)
 ```
 
+The default export is `caseFold`, with every export as a property:
+`import caseFold from "unicode-nfkc-casefolding"`.
+
 ## API
 
 ### `caseFold(string)`

@@ -1,0 +1,19 @@
+{
+  "name": "unicode-kanji-readings",
+  "version": "1.0.0",
+  "description": "Japanese on and kun readings of kanji in kana, based on the Unicode Han Database (Unihan)",
+  "keywords": [
+    "unicode",
+    "unihan",
+    "kanji",
+    "japanese",
+    "readings",
+    "onyomi",
+    "kunyomi",
+    "kana",
+    "furigana"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

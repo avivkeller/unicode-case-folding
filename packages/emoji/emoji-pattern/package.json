@@ -1,0 +1,19 @@
+{
+  "name": "unicode-emoji-pattern",
+  "version": "1.0.0",
+  "description": "A regular expression that matches every emoji, with flags, skin tones and ZWJ sequences as one match, and functions to find, count and strip emoji, based on the official Unicode emoji data",
+  "keywords": [
+    "unicode",
+    "emoji",
+    "regex",
+    "regexp",
+    "rgi-emoji",
+    "emoji-sequences",
+    "zwj",
+    "uts51",
+    "strip-emoji"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

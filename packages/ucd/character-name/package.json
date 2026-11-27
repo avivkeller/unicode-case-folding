@@ -1,0 +1,23 @@
+{
+  "name": "unicode-character-name",
+  "version": "1.0.0",
+  "description": "Get the Unicode name of a character (\"LATIN SMALL LETTER A\") and find a character by its name, alias or named sequence, with loose matching, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "character-name",
+    "names",
+    "name-aliases",
+    "named-sequences",
+    "uax44",
+    "charname",
+    "code-point",
+    "lookup"
+  ],
+  "specs": {
+    "https://www.unicode.org/reports/tr44/": 38
+  },
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

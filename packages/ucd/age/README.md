@@ -22,6 +22,9 @@ getRequiredVersion("Hello 🫨"); // "15.0"
 isAssignedIn(0x1fae8, "14.0"); // false
 ```
 
+The default export is `getAge`, with every export as a property:
+`import getAge from "unicode-age"`.
+
 ## API
 
 ### `getAge(codePoint)`

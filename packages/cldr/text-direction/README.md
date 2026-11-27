@@ -26,6 +26,9 @@ document.documentElement.dir = getTextDirection(navigator.language);
 isRightToLeft("he"); // true
 ```
 
+The default export is `getTextDirection`, with every export as a property:
+`import getTextDirection from "cldr-text-direction"`.
+
 ## API
 
 ### `getTextDirection(locale)`

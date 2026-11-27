@@ -45,4 +45,9 @@ export function lookupLowercase(codePoint) {
   return mapping === undefined ? undefined : toCodePoints(mapping);
 }
 
-export default { toLowercase, isLowercase, lookupLowercase, VERSION };
+export default /* @__PURE__ */ Object.assign(toLowercase, {
+  toLowercase,
+  isLowercase,
+  lookupLowercase,
+  VERSION,
+});

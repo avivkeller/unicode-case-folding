@@ -12,6 +12,9 @@
     "text-layout",
     "i18n"
   ],
+  "specs": {
+    "https://www.unicode.org/reports/tr14/": 57
+  },
   "imports": {
     "#generated": "./generate.mjs"
   }

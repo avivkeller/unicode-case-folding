@@ -13,6 +13,9 @@
     "i18n",
     "locale"
   ],
+  "specs": {
+    "https://www.unicode.org/reports/tr35/tr35-numbers.html": 79
+  },
   "imports": {
     "#generated": "./generate.mjs"
   }

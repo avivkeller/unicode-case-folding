@@ -1,0 +1,15 @@
+{
+  "name": "unicode-block-property",
+  "version": "1.0.0",
+  "description": "Find the Unicode block of a character (Basic Latin, Cyrillic, Emoticons…) and list every block with its range, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "block",
+    "blocks",
+    "range"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

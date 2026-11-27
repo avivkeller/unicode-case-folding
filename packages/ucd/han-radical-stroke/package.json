@@ -1,0 +1,20 @@
+{
+  "name": "unicode-han-radical-stroke",
+  "version": "1.0.0",
+  "description": "Radical and stroke counts of Chinese characters, and radical-stroke sorting as in dictionaries, based on the Unicode Han Database (Unihan)",
+  "keywords": [
+    "unicode",
+    "unihan",
+    "chinese",
+    "hanzi",
+    "kanji",
+    "radical",
+    "strokes",
+    "stroke-count",
+    "kangxi",
+    "sort"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

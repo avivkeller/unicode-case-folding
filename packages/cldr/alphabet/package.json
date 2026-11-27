@@ -1,0 +1,18 @@
+{
+  "name": "cldr-alphabet",
+  "version": "1.0.0",
+  "description": "The alphabet of a language: its letters in order, the A–Z labels of its index, and its digits and punctuation, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "alphabet",
+    "letters",
+    "exemplar-characters",
+    "index",
+    "i18n",
+    "locale"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

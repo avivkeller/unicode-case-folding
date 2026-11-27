@@ -1,0 +1,20 @@
+{
+  "name": "unicode-arabic-shaping",
+  "version": "1.0.0",
+  "description": "Join Arabic letters into their contextual presentation forms and lam-alef ligatures, for terminals, canvases and PDFs that do not shape text, and back, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "arabic",
+    "shaping",
+    "reshaper",
+    "presentation-forms",
+    "joining-type",
+    "persian",
+    "urdu",
+    "rtl"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

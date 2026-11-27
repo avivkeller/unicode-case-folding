@@ -28,6 +28,9 @@ new Intl.DateTimeFormat("en", {
 }).format(new Date());
 ```
 
+The default export is `windowsToIana`, with every export as a property:
+`import windowsToIana from "cldr-windows-zones"`.
+
 ## API
 
 ### `windowsToIana(windowsZone, options?)`

@@ -1,0 +1,23 @@
+{
+  "name": "cldr-locale-matcher",
+  "version": "1.0.0",
+  "description": "Pick the best supported locale for a user's preferred languages, as ICU's LocaleMatcher does, with the language matching data of the Unicode CLDR (UTS #35)",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "locale",
+    "locale-matcher",
+    "language-matching",
+    "language-negotiation",
+    "accept-language",
+    "best-match",
+    "bcp47",
+    "i18n"
+  ],
+  "specs": {
+    "https://www.unicode.org/reports/tr35/tr35.html": 79
+  },
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

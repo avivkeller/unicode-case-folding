@@ -1,0 +1,19 @@
+{
+  "name": "cldr-subdivision-names",
+  "version": "1.0.0",
+  "description": "Names of states, provinces and other country subdivisions (ISO 3166-2, \"US-CA\" → \"California\"), and the subdivisions of a country, based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "subdivision",
+    "state",
+    "province",
+    "iso-3166-2",
+    "country",
+    "region",
+    "i18n"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

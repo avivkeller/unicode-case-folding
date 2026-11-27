@@ -24,6 +24,9 @@ const { yes, no } = getYesNo("de"); // { yes: ["ja", "j"], no: ["nein", "n"] }
 const prompt = `Fortfahren? [${yes.at(-1)}/${no.at(-1)}] `; // "Fortfahren? [j/n] "
 ```
 
+The default export is `parseYesNo`, with every export as a property:
+`import parseYesNo from "cldr-yes-no"`.
+
 ## API
 
 ### `parseYesNo(answer, locale)`

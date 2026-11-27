@@ -211,14 +211,14 @@ function separatorLength(text, end) {
   return isCrLf ? 2 : 1;
 }
 
-export default {
+export default /* @__PURE__ */ Object.assign(getEmbeddingLevels, {
   getEmbeddingLevels,
   reorderLine,
   toVisualString,
   getMirroredCharacter,
   getBidiClass,
   VERSION,
-};
+});
 
 /**
  * Even levels are left-to-right, odd levels right-to-left

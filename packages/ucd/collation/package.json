@@ -1,0 +1,23 @@
+{
+  "name": "unicode-collation",
+  "version": "1.0.0",
+  "description": "The Unicode Collation Algorithm (UTS #10): compare and sort strings of any script in the default Unicode order, with sort keys, based on the official Default Unicode Collation Element Table",
+  "keywords": [
+    "unicode",
+    "uca",
+    "ducet",
+    "collation",
+    "collator",
+    "sort",
+    "compare",
+    "sort-key",
+    "uts10",
+    "i18n"
+  ],
+  "specs": {
+    "https://www.unicode.org/reports/tr10/": 55
+  },
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

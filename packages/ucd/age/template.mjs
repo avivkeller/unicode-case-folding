@@ -55,4 +55,9 @@ function compareVersions(a, b) {
   return aMajor - bMajor || aMinor - bMinor;
 }
 
-export default { getAge, getRequiredVersion, isAssignedIn, VERSION };
+export default /* @__PURE__ */ Object.assign(getAge, {
+  getAge,
+  getRequiredVersion,
+  isAssignedIn,
+  VERSION,
+});

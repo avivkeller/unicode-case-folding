@@ -42,6 +42,14 @@ test("Taiwan readings", () => {
   assert.equal(getPinyin(0x4e2d, { locale: "zh-TW" }), "zh\u014dng");
 });
 
+test("default export", async () => {
+  const { default: main, ...named } = await import("../dist/index.mjs");
+  assert.equal(main, named.toPinyin);
+  for (const [name, value] of Object.entries(named)) {
+    assert.equal(main[name], value, name);
+  }
+});
+
 test("VERSION", () => {
   assert.match(VERSION, /^\d+\.\d+\.\d+$/);
 });

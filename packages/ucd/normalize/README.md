@@ -60,6 +60,9 @@ The four forms of "ẛ̣" (`"\u1E9B\u0323"`):
 | NFKC | `"\u1E69"`             |
 | NFKD | `"s\u0323\u0307"`      |
 
+The default export is `normalize`, with every export as a property:
+`import normalize from "unicode-normalize"`.
+
 ## API
 
 ### `normalize(string, form = "NFC")`

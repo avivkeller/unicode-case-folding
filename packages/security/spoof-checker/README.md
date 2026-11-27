@@ -43,6 +43,9 @@ getRestrictionLevel("Toys-Я-Us"); // "minimally-restrictive"
 getRestrictionLevel("a‍b"); // "unrestricted" (ZWJ is not allowed)
 ```
 
+The default export is `areConfusable`, with every export as a property:
+`import areConfusable from "unicode-spoof-checker"`.
+
 ## API
 
 ### `skeleton(string, options?)`

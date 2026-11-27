@@ -1,0 +1,22 @@
+{
+  "name": "unicode-link-detection",
+  "version": "1.0.0",
+  "description": "Find the URLs and email addresses of a text and where they end, and format URLs with minimal percent-escaping, implementing Unicode Link Detection and Formatting (UTS #58)",
+  "keywords": [
+    "unicode",
+    "uts58",
+    "linkify",
+    "link-detection",
+    "autolink",
+    "url",
+    "email",
+    "percent-encoding",
+    "i18n"
+  ],
+  "specs": {
+    "https://www.unicode.org/reports/tr58/": 3
+  },
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

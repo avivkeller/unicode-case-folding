@@ -27,6 +27,9 @@ caseFoldEquals("ẞ", "ss"); // true
 lookupFolding(0xdf); // [0x73, 0x73] ("ß" → "ss")
 ```
 
+The default export is `caseFold`, with every export as a property:
+`import caseFold from "unicode-case-folding"`.
+
 ## API
 
 ### `caseFold(string)`

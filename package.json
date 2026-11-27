@@ -13,7 +13,8 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "release": "node packages/internal/build/src/release.mjs"
+    "release": "node packages/internal/build/src/release.mjs",
+    "specs": "node packages/internal/build/src/check-specs.mjs"
   },
   "author": "Aviv Keller <me@aviv.sh>",
   "license": "MIT",

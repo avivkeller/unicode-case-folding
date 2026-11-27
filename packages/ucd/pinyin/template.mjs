@@ -85,7 +85,11 @@ function formatTone(syllable, tone) {
   return tone === "number" && mark ? plain + TONE_MARKS[mark] : plain;
 }
 
-export default { getPinyin, toPinyin, VERSION };
+export default /* @__PURE__ */ Object.assign(toPinyin, {
+  getPinyin,
+  toPinyin,
+  VERSION,
+});
 
 /**
  * @typedef {object} PinyinOptions

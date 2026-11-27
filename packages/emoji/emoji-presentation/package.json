@@ -1,0 +1,19 @@
+{
+  "name": "unicode-emoji-presentation",
+  "version": "1.0.0",
+  "description": "Force the emoji or text presentation of the characters of a string with variation selectors (☺️ ↔ ☺︎), and tell which one a character has by default, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "emoji",
+    "emoji-presentation",
+    "text-presentation",
+    "variation-selector",
+    "vs15",
+    "vs16",
+    "uts51"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

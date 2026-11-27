@@ -27,6 +27,9 @@ minimize("en-Latn-US"); // "en"
 getLikelySubtags("pa-PK"); // { language: "pa", script: "Arab", region: "PK" }
 ```
 
+The default export is `maximize`, with every export as a property:
+`import maximize from "cldr-likely-subtags"`.
+
 ## API
 
 Locales are BCP 47 language tags or `Intl.Locale` objects. Results are

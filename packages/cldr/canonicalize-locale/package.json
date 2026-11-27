@@ -1,0 +1,22 @@
+{
+  "name": "cldr-canonicalize-locale",
+  "version": "1.0.0",
+  "description": "Canonicalize locale identifiers, replacing deprecated and legacy codes (\"iw\" → \"he\", \"sgn-US\" → \"ase\", \"i-klingon\" → \"tlh\"), like Intl.getCanonicalLocales(), based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "locale",
+    "canonicalize",
+    "bcp47",
+    "language-tag",
+    "alias",
+    "getCanonicalLocales",
+    "i18n"
+  ],
+  "specs": {
+    "https://www.unicode.org/reports/tr35/tr35.html": 79
+  },
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

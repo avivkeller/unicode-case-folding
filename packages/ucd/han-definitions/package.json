@@ -1,0 +1,19 @@
+{
+  "name": "unicode-han-definitions",
+  "version": "1.0.0",
+  "description": "English definitions of Chinese characters (hanzi, kanji, hanja), based on the Unicode Han Database (Unihan)",
+  "keywords": [
+    "unicode",
+    "unihan",
+    "chinese",
+    "hanzi",
+    "kanji",
+    "definition",
+    "dictionary",
+    "meaning",
+    "gloss"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

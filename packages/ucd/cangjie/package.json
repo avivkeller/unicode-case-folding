@@ -1,0 +1,17 @@
+{
+  "name": "unicode-cangjie",
+  "version": "1.0.0",
+  "description": "Cangjie input method codes of Chinese characters, as letters or as radicals, based on the Unicode Han Database (Unihan)",
+  "keywords": [
+    "unicode",
+    "unihan",
+    "cangjie",
+    "chinese",
+    "hanzi",
+    "input-method",
+    "ime"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

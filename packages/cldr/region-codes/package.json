@@ -1,0 +1,20 @@
+{
+  "name": "cldr-region-codes",
+  "version": "1.0.0",
+  "description": "Convert country and region codes between ISO 3166 alpha-2, alpha-3 and numeric (\"US\" ↔ \"USA\" ↔ \"840\"), based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "country-codes",
+    "region",
+    "iso-3166",
+    "alpha-2",
+    "alpha-3",
+    "numeric",
+    "un-m49",
+    "i18n"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

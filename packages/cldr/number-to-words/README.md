@@ -38,6 +38,9 @@ numberToWords(9007199254740993n, "en"); // "nine quadrillion seven trillion … 
 getRuleSets("de"); // ["spellout-numbering-year", "spellout-numbering", …]
 ```
 
+The default export is `numberToWords`, with every export as a property:
+`import numberToWords from "cldr-number-to-words"`.
+
 ## API
 
 ### numberToWords(value, locale, options?)

@@ -1,0 +1,22 @@
+{
+  "name": "cldr-locale-fallback",
+  "version": "1.0.0",
+  "description": "Find the fallback chain of a locale for loading translations (\"es-MX\" → \"es-419\" → \"es\", \"zh-TW\" → \"zh-Hant\"), based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "locale",
+    "fallback",
+    "parent-locale",
+    "inheritance",
+    "translations",
+    "i18n",
+    "l10n"
+  ],
+  "specs": {
+    "https://www.unicode.org/reports/tr35/tr35.html": 79
+  },
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

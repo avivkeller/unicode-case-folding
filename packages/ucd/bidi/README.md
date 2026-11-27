@@ -45,6 +45,9 @@ reorderLine(text, embeddingLevels, 0, 7);
 // { order: [6, 5, 4, 3, 2, 1, 0], mirrored: [0, 5] }
 ```
 
+The default export is `getEmbeddingLevels`, with every export as a property:
+`import getEmbeddingLevels from "unicode-bidi"`.
+
 ## API
 
 ### `getEmbeddingLevels(text, options?)`

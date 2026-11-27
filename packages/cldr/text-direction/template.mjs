@@ -27,4 +27,8 @@ export function isRightToLeft(locale) {
   return getTextDirection(locale) === "rtl";
 }
 
-export default { getTextDirection, isRightToLeft, VERSION };
+export default /* @__PURE__ */ Object.assign(getTextDirection, {
+  getTextDirection,
+  isRightToLeft,
+  VERSION,
+});

@@ -1,0 +1,22 @@
+{
+  "name": "cldr-preferred-calendars",
+  "version": "1.0.0",
+  "description": "Find the calendars used in the region of a locale, most preferred first (Gregorian, Japanese, Buddhist, Hijri…), like Intl.Locale.prototype.getCalendars(), based on the Unicode CLDR",
+  "keywords": [
+    "unicode",
+    "cldr",
+    "calendar",
+    "gregorian",
+    "hijri",
+    "buddhist",
+    "getCalendars",
+    "i18n",
+    "locale"
+  ],
+  "specs": {
+    "https://www.unicode.org/reports/tr35/tr35-dates.html": 79
+  },
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

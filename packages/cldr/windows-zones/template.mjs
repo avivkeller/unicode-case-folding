@@ -53,10 +53,10 @@ function regionsOf(windowsZone) {
   return WINDOWS_ZONES[WINDOWS_INDEX.get(windowsZone.toLowerCase())]?.[1];
 }
 
-export default {
+export default /* @__PURE__ */ Object.assign(windowsToIana, {
   windowsToIana,
   windowsToIanaZones,
   ianaToWindows,
   getWindowsZones,
   VERSION,
-};
+});

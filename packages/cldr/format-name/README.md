@@ -58,6 +58,9 @@ formatName(
 // "Berg, Johannes van den"
 ```
 
+The default export is `formatName`, with every export as a property:
+`import formatName from "cldr-format-name"`.
+
 ## API
 
 ### `formatName(name, options)`

@@ -117,7 +117,12 @@ function parse(locale) {
   return result;
 }
 
-export default { maximize, getLikelySubtags, minimize, VERSION };
+export default /* @__PURE__ */ Object.assign(maximize, {
+  maximize,
+  getLikelySubtags,
+  minimize,
+  VERSION,
+});
 
 /**
  * @typedef {object} LikelySubtags

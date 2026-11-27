@@ -128,6 +128,14 @@ test("splitAtLineBreaks", () => {
   assert.throws(() => splitAtLineBreaks(undefined), TypeError);
 });
 
+test("default export", async () => {
+  const { default: main, ...named } = await import("../dist/index.mjs");
+  assert.equal(main, named.findLineBreaks);
+  for (const [name, value] of Object.entries(named)) {
+    assert.equal(main[name], value, name);
+  }
+});
+
 test("VERSION", () => {
   assert.match(VERSION, /^\d+\.\d+\.\d+$/);
 });

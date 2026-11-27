@@ -27,6 +27,9 @@ getNumericValue(0x216b); // 12 ("Ⅻ")
 getNumericValue(0x4e07); // 10000 ("万")
 ```
 
+The default export is `normalizeDigits`, with every export as a property:
+`import normalizeDigits from "unicode-normalize-digits"`.
+
 ## API
 
 ### `normalizeDigits(text)`

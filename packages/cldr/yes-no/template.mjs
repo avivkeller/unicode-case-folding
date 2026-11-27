@@ -32,7 +32,11 @@ export function getYesNo(locale) {
   return { yes: [...yes], no: [...no] };
 }
 
-export default { parseYesNo, getYesNo, VERSION };
+export default /* @__PURE__ */ Object.assign(parseYesNo, {
+  parseYesNo,
+  getYesNo,
+  VERSION,
+});
 
 /**
  * @typedef {object} YesNo

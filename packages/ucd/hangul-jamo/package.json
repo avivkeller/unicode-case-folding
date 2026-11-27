@@ -1,0 +1,20 @@
+{
+  "name": "unicode-hangul-jamo",
+  "version": "1.0.0",
+  "description": "Split Korean Hangul syllables into jamo letters and join them back, convert between conjoining and compatibility jamo, and get initial consonants for choseong search, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "hangul",
+    "jamo",
+    "korean",
+    "choseong",
+    "initial-consonant",
+    "syllable",
+    "search",
+    "decompose"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

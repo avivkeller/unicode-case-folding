@@ -1,0 +1,17 @@
+{
+  "name": "unicode-character-properties",
+  "version": "1.0.0",
+  "description": "The properties of a character in one place: general category, script, block, age, East Asian width and vertical orientation, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "properties",
+    "general-category",
+    "script",
+    "script-extensions",
+    "block",
+    "age",
+    "east-asian-width",
+    "vertical-orientation"
+  ]
+}

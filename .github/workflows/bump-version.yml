@@ -5,8 +5,8 @@ on:
   push:
     branches: [main]
   schedule:
-    # Once a month, to pick up new UCD and CLDR releases
-    - cron: "0 0 1 * *"
+    # Once a week
+    - cron: "0 0 * * 1"
 
 permissions: {}
 

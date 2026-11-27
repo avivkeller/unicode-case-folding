@@ -45,4 +45,9 @@ export function lookupUppercase(codePoint) {
   return mapping === undefined ? undefined : toCodePoints(mapping);
 }
 
-export default { toUppercase, isUppercase, lookupUppercase, VERSION };
+export default /* @__PURE__ */ Object.assign(toUppercase, {
+  toUppercase,
+  isUppercase,
+  lookupUppercase,
+  VERSION,
+});

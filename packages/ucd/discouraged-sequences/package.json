@@ -1,0 +1,20 @@
+{
+  "name": "unicode-discouraged-sequences",
+  "version": "1.0.0",
+  "description": "Find and replace the character sequences that Unicode says not to emit (deprecated characters, legacy Indic spellings) with their preferred form, based on the official Unicode Character Database",
+  "keywords": [
+    "unicode",
+    "ucd",
+    "do-not-emit",
+    "deprecated",
+    "discouraged",
+    "lint",
+    "input-method",
+    "indic",
+    "devanagari",
+    "text-cleanup"
+  ],
+  "imports": {
+    "#generated": "./generate.mjs"
+  }
+}

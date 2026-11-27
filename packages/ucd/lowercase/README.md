@@ -28,6 +28,9 @@ toLowercase("Iİ", { locale: "tr" }); // "ıi"
 isLowercase("hello wörld"); // true
 ```
 
+The default export is `toLowercase`, with every export as a property:
+`import toLowercase from "unicode-lowercase"`.
+
 ## API
 
 ### `toLowercase(string, options?)`

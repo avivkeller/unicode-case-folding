@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import test from "node:test";
 import { assertMatchesNative } from "@internal/build/testing";
-import unicodeNormalize, {
+import {
   getCombiningClass,
   isNormalized,
   lookupDecomposition,
@@ -319,16 +319,14 @@ test("getCombiningClass", () => {
   assert.throws(() => getCombiningClass(0x110000), RangeError);
 });
 
-test("VERSION", () => {
-  assert.match(VERSION, /^\d+\.\d+\.\d+$/);
+test("default export", async () => {
+  const { default: main, ...named } = await import("../dist/index.mjs");
+  assert.equal(main, named.normalize);
+  for (const [name, value] of Object.entries(named)) {
+    assert.equal(main[name], value, name);
+  }
 });
 
-test("default export", () => {
-  assert.deepEqual(unicodeNormalize, {
-    normalize,
-    isNormalized,
-    lookupDecomposition,
-    getCombiningClass,
-    VERSION,
-  });
+test("VERSION", () => {
+  assert.match(VERSION, /^\d+\.\d+\.\d+$/);
 });

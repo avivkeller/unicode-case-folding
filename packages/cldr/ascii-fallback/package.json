@@ -11,6 +11,9 @@
     "slug",
     "fallback"
   ],
+  "specs": {
+    "https://www.unicode.org/reports/tr35/tr35-general.html": 79
+  },
   "imports": {
     "#generated": "./generate.mjs"
   }
