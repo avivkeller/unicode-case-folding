@@ -1,6 +1,6 @@
 {
   "name": "unicode-script-property",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The script of a character (Latin, Cyrillic, Han…) and its script extensions (UAX #24), based on the official Unicode Character Database",
   "keywords": [
     "unicode",

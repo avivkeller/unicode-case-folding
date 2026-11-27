@@ -1,6 +1,6 @@
 {
   "name": "unicode-spoof-checker",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Unicode Security Mechanisms (UTS #39): confusable skeletons, mixed-script detection, restriction levels and identifier status, based on the official Unicode security data",
   "keywords": [
     "unicode",

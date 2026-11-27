@@ -1,6 +1,6 @@
 {
   "name": "unicode-normalize-digits",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Convert digits from any script to ASCII 0-9, and look up the numeric value of any character, based on the official Unicode Character Database",
   "keywords": [
     "unicode",

@@ -1,6 +1,6 @@
 {
   "name": "cldr-week-info",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Find the first day of the week, the weekend and the week numbering rules of any locale, like Intl.Locale.prototype.getWeekInfo(), based on the Unicode CLDR",
   "keywords": [
     "unicode",

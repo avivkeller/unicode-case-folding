@@ -1,6 +1,6 @@
 {
   "name": "unicode-lowercase",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Full Unicode lowercase mapping, with Final_Sigma and Lithuanian, Turkish and Azeri rules, based on the official Unicode Character Database",
   "keywords": [
     "unicode",
