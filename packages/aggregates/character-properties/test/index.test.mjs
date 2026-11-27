@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import * as age from "../../../ucd/age/dist/index.mjs";
 import * as block from "../../../ucd/block-property/dist/index.mjs";
-import * as eastAsianWidth from "../../../ucd/east-asian-width/dist/index.mjs";
+import * as eastAsianWidth from "../../../ucd/east-asian-width-property/dist/index.mjs";
 import * as generalCategory from "../../../ucd/general-category/dist/index.mjs";
 import * as script from "../../../ucd/script-property/dist/index.mjs";
 import * as verticalOrientation from "../../../ucd/vertical-orientation/dist/index.mjs";

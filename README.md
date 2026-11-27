@@ -11,41 +11,41 @@ latest data every month.
 
 ### From the Unicode Character Database
 
-| Package                                                                 | Description                                                                      |
-| ----------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| [`unicode-case-folding`](packages/ucd/case-folding)                     | Full case folding, for case-insensitive comparison                               |
-| [`unicode-nfkc-casefolding`](packages/ucd/nfkc-casefolding)             | NFKC case folding, for loose matching of identifiers and usernames               |
-| [`unicode-lowercase`](packages/ucd/lowercase)                           | Full lowercase mapping, with Final_Sigma and Lithuanian, Turkish and Azeri rules |
-| [`unicode-uppercase`](packages/ucd/uppercase)                           | Full uppercase mapping, with Lithuanian, Turkish and Azeri rules                 |
-| [`unicode-titlecase`](packages/ucd/titlecase)                           | Titlecasing as defined by the Unicode Standard                                   |
-| [`unicode-normalize-digits`](packages/ucd/normalize-digits)             | Digits of any script to ASCII ("١٢٣" → "123"), and numeric values                |
-| [`unicode-display-width`](packages/ucd/display-width)                   | How many terminal columns a string takes                                         |
-| [`unicode-line-break`](packages/ucd/line-break)                         | Line break opportunities (UAX #14)                                               |
-| [`unicode-bidi`](packages/ucd/bidi)                                     | The Unicode Bidirectional Algorithm (UAX #9)                                     |
-| [`unicode-age`](packages/ucd/age)                                       | The Unicode version that introduced a character                                  |
-| [`unicode-normalize`](packages/ucd/normalize)                           | Normalization: NFC, NFD, NFKC and NFKD (UAX #15)                                 |
-| [`unicode-text-segmentation`](packages/ucd/text-segmentation)           | Grapheme cluster, word and sentence boundaries (UAX #29)                         |
-| [`unicode-script-property`](packages/ucd/script-property)               | The script of a character and its script extensions (UAX #24)                    |
-| [`unicode-pinyin`](packages/ucd/pinyin)                                 | Mandarin readings of Chinese characters, from Unihan                             |
-| [`unicode-character-name`](packages/ucd/character-name)                 | The name of a character, and the character of a name                             |
-| [`unicode-general-category`](packages/ucd/general-category)             | The general category of a character (Lu, Nd, Zs…)                                |
-| [`unicode-block-property`](packages/ucd/block-property)                 | The block a character belongs to (Basic Latin, Cyrillic…)                        |
-| [`unicode-east-asian-width`](packages/ucd/east-asian-width)             | The East Asian Width of a character (UAX #11)                                    |
-| [`unicode-vertical-orientation`](packages/ucd/vertical-orientation)     | Whether a character stays upright in vertical text (UAX #50)                     |
-| [`unicode-collation`](packages/ucd/collation)                           | Sorting in the default Unicode order, with sort keys (UTS #10)                   |
-| [`unicode-identifier`](packages/ucd/identifier)                         | Programming language identifiers (UAX #31)                                       |
-| [`unicode-link-detection`](packages/ucd/link-detection)                 | Where URLs and email addresses end in text (UTS #58)                             |
-| [`unicode-arabic-shaping`](packages/ucd/arabic-shaping)                 | Arabic letters to their joined presentation forms, and back                      |
-| [`unicode-hangul-jamo`](packages/ucd/hangul-jamo)                       | Korean syllables to jamo and back, and initial consonant search                  |
-| [`unicode-discouraged-sequences`](packages/ucd/discouraged-sequences)   | Finds and fixes the sequences that should not be emitted                         |
-| [`unicode-simplified-traditional`](packages/ucd/simplified-traditional) | Simplified ↔ traditional Chinese characters, from Unihan                         |
-| [`unicode-jyutping`](packages/ucd/jyutping)                             | Cantonese readings of Chinese characters, from Unihan                            |
-| [`unicode-kanji-readings`](packages/ucd/kanji-readings)                 | On and kun readings of kanji, from Unihan                                        |
-| [`unicode-hanja-readings`](packages/ucd/hanja-readings)                 | Korean readings of Han characters, from Unihan                                   |
-| [`unicode-vietnamese-readings`](packages/ucd/vietnamese-readings)       | Vietnamese readings of Han characters, from Unihan                               |
-| [`unicode-han-definitions`](packages/ucd/han-definitions)               | English definitions of Han characters, from Unihan                               |
-| [`unicode-han-radical-stroke`](packages/ucd/han-radical-stroke)         | Radical and stroke count of Han characters, and their order                      |
-| [`unicode-cangjie`](packages/ucd/cangjie)                               | Cangjie input codes of Han characters, from Unihan                               |
+| Package                                                                       | Description                                                                      |
+| ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| [`unicode-case-folding`](packages/ucd/case-folding)                           | Full case folding, for case-insensitive comparison                               |
+| [`unicode-nfkc-casefolding`](packages/ucd/nfkc-casefolding)                   | NFKC case folding, for loose matching of identifiers and usernames               |
+| [`unicode-lowercase`](packages/ucd/lowercase)                                 | Full lowercase mapping, with Final_Sigma and Lithuanian, Turkish and Azeri rules |
+| [`unicode-uppercase`](packages/ucd/uppercase)                                 | Full uppercase mapping, with Lithuanian, Turkish and Azeri rules                 |
+| [`unicode-titlecase`](packages/ucd/titlecase)                                 | Titlecasing as defined by the Unicode Standard                                   |
+| [`unicode-normalize-digits`](packages/ucd/normalize-digits)                   | Digits of any script to ASCII ("١٢٣" → "123"), and numeric values                |
+| [`unicode-display-width`](packages/ucd/display-width)                         | How many terminal columns a string takes                                         |
+| [`unicode-line-break`](packages/ucd/line-break)                               | Line break opportunities (UAX #14)                                               |
+| [`unicode-bidi`](packages/ucd/bidi)                                           | The Unicode Bidirectional Algorithm (UAX #9)                                     |
+| [`unicode-age`](packages/ucd/age)                                             | The Unicode version that introduced a character                                  |
+| [`unicode-normalize`](packages/ucd/normalize)                                 | Normalization: NFC, NFD, NFKC and NFKD (UAX #15)                                 |
+| [`unicode-text-segmentation`](packages/ucd/text-segmentation)                 | Grapheme cluster, word and sentence boundaries (UAX #29)                         |
+| [`unicode-script-property`](packages/ucd/script-property)                     | The script of a character and its script extensions (UAX #24)                    |
+| [`unicode-pinyin`](packages/ucd/pinyin)                                       | Mandarin readings of Chinese characters, from Unihan                             |
+| [`unicode-character-name`](packages/ucd/character-name)                       | The name of a character, and the character of a name                             |
+| [`unicode-general-category`](packages/ucd/general-category)                   | The general category of a character (Lu, Nd, Zs…)                                |
+| [`unicode-block-property`](packages/ucd/block-property)                       | The block a character belongs to (Basic Latin, Cyrillic…)                        |
+| [`unicode-east-asian-width-property`](packages/ucd/east-asian-width-property) | The East Asian Width of a character (UAX #11)                                    |
+| [`unicode-vertical-orientation`](packages/ucd/vertical-orientation)           | Whether a character stays upright in vertical text (UAX #50)                     |
+| [`unicode-collation`](packages/ucd/collation)                                 | Sorting in the default Unicode order, with sort keys (UTS #10)                   |
+| [`unicode-identifier`](packages/ucd/identifier)                               | Programming language identifiers (UAX #31)                                       |
+| [`unicode-link-detection`](packages/ucd/link-detection)                       | Where URLs and email addresses end in text (UTS #58)                             |
+| [`unicode-arabic-shaping`](packages/ucd/arabic-shaping)                       | Arabic letters to their joined presentation forms, and back                      |
+| [`unicode-hangul-jamo`](packages/ucd/hangul-jamo)                             | Korean syllables to jamo and back, and initial consonant search                  |
+| [`unicode-discouraged-sequences`](packages/ucd/discouraged-sequences)         | Finds and fixes the sequences that should not be emitted                         |
+| [`unicode-simplified-traditional`](packages/ucd/simplified-traditional)       | Simplified ↔ traditional Chinese characters, from Unihan                         |
+| [`unicode-jyutping`](packages/ucd/jyutping)                                   | Cantonese readings of Chinese characters, from Unihan                            |
+| [`unicode-kanji-readings`](packages/ucd/kanji-readings)                       | On and kun readings of kanji, from Unihan                                        |
+| [`unicode-hanja-readings`](packages/ucd/hanja-readings)                       | Korean readings of Han characters, from Unihan                                   |
+| [`unicode-vietnamese-readings`](packages/ucd/vietnamese-readings)             | Vietnamese readings of Han characters, from Unihan                               |
+| [`unicode-han-definitions`](packages/ucd/han-definitions)                     | English definitions of Han characters, from Unihan                               |
+| [`unicode-han-radical-stroke`](packages/ucd/han-radical-stroke)               | Radical and stroke count of Han characters, and their order                      |
+| [`unicode-cangjie`](packages/ucd/cangjie)                                     | Cangjie input codes of Han characters, from Unihan                               |
 
 ### Aggregates
 

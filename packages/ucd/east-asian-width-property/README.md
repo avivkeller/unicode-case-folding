@@ -1,4 +1,4 @@
-# unicode-east-asian-width
+# unicode-east-asian-width-property
 
 Finds the East_Asian_Width of a character: whether East Asian typography
 treats it as wide or narrow, using the latest Unicode Character Database
@@ -12,13 +12,13 @@ takes, with emoji, combining marks and escape codes handled, use
 ## Installation
 
 ```sh
-npm install unicode-east-asian-width
+npm install unicode-east-asian-width-property
 ```
 
 ## Usage
 
 ```js
-import { getEastAsianWidth } from "unicode-east-asian-width";
+import { getEastAsianWidth } from "unicode-east-asian-width-property";
 
 getEastAsianWidth(0x4e2d); // "W" (中)
 getEastAsianWidth(0x41); // "Na" (A)
@@ -27,7 +27,7 @@ getEastAsianWidth(0xa1); // "A" (¡, wide only in East Asian contexts)
 ```
 
 The default export is `getEastAsianWidth`, with every export as a property:
-`import getEastAsianWidth from "unicode-east-asian-width"`.
+`import getEastAsianWidth from "unicode-east-asian-width-property"`.
 
 ## API
 

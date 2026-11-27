@@ -1,5 +1,5 @@
 {
-  "name": "unicode-east-asian-width",
+  "name": "unicode-east-asian-width-property",
   "version": "1.0.0",
   "description": "Find the East_Asian_Width of a character (UAX #11): fullwidth, halfwidth, wide, narrow, ambiguous or neutral, based on the official Unicode Character Database",
   "keywords": [

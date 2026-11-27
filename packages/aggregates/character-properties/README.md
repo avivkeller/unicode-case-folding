@@ -9,14 +9,14 @@ This package has no data of its own. It bundles the six packages below,
 re-exports their functions, and adds `getProperties()`, which returns every
 property of a code point as one object.
 
-| Functions                                                      | Package                                                          |
-| -------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `getGeneralCategory`, `getGeneralCategoryName`, `isInCategory` | [`unicode-general-category`](../../ucd/general-category)         |
-| `getScript`, `getScriptExtensions`, `hasScript`                | [`unicode-script-property`](../../ucd/script-property)           |
-| `getBlock`, `getBlocks`                                        | [`unicode-block-property`](../../ucd/block-property)             |
-| `getAge`, `getRequiredVersion`, `isAssignedIn`                 | [`unicode-age`](../../ucd/age)                                   |
-| `getEastAsianWidth`                                            | [`unicode-east-asian-width`](../../ucd/east-asian-width)         |
-| `getVerticalOrientation`                                       | [`unicode-vertical-orientation`](../../ucd/vertical-orientation) |
+| Functions                                                      | Package                                                                    |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `getGeneralCategory`, `getGeneralCategoryName`, `isInCategory` | [`unicode-general-category`](../../ucd/general-category)                   |
+| `getScript`, `getScriptExtensions`, `hasScript`                | [`unicode-script-property`](../../ucd/script-property)                     |
+| `getBlock`, `getBlocks`                                        | [`unicode-block-property`](../../ucd/block-property)                       |
+| `getAge`, `getRequiredVersion`, `isAssignedIn`                 | [`unicode-age`](../../ucd/age)                                             |
+| `getEastAsianWidth`                                            | [`unicode-east-asian-width-property`](../../ucd/east-asian-width-property) |
+| `getVerticalOrientation`                                       | [`unicode-vertical-orientation`](../../ucd/vertical-orientation)           |
 
 ## Installation
 

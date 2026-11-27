@@ -1,7 +1,7 @@
 import { assertCodePoint } from "@internal/helpers/assert";
 import { getAge, getRequiredVersion, isAssignedIn } from "unicode-age";
 import { getBlock, getBlocks } from "unicode-block-property";
-import { getEastAsianWidth } from "unicode-east-asian-width";
+import { getEastAsianWidth } from "unicode-east-asian-width-property";
 import {
   VERSION,
   getGeneralCategory,
